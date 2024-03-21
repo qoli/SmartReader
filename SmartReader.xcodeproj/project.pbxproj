@@ -1,0 +1,971 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EACC21482BABE88D00D85D47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACC21472BABE88D00D85D47 /* AppDelegate.swift */; };
+		EACC214A2BABE88D00D85D47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACC21492BABE88D00D85D47 /* SceneDelegate.swift */; };
+		EACC214D2BABE88D00D85D47 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EACC214C2BABE88D00D85D47 /* Base */; };
+		EACC21502BABE88D00D85D47 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EACC214F2BABE88D00D85D47 /* Base */; };
+		EACC21592BABE88E00D85D47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACC21582BABE88E00D85D47 /* AppDelegate.swift */; };
+		EACC215C2BABE88E00D85D47 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EACC215B2BABE88E00D85D47 /* Base */; };
+		EACC21632BABE88E00D85D47 /* SmartReader Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EACC21622BABE88E00D85D47 /* SmartReader Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EACC216D2BABE88E00D85D47 /* SmartReader Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EACC216C2BABE88E00D85D47 /* SmartReader Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EACC21732BABE88E00D85D47 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EACC212F2BABE88D00D85D47 /* Base */; };
+		EACC21742BABE88E00D85D47 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EACC212F2BABE88D00D85D47 /* Base */; };
+		EACC21752BABE88E00D85D47 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC21302BABE88D00D85D47 /* Icon.png */; };
+		EACC21762BABE88E00D85D47 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC21302BABE88D00D85D47 /* Icon.png */; };
+		EACC21772BABE88E00D85D47 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = EACC21312BABE88D00D85D47 /* Style.css */; };
+		EACC21782BABE88E00D85D47 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = EACC21312BABE88D00D85D47 /* Style.css */; };
+		EACC21792BABE88E00D85D47 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = EACC21322BABE88D00D85D47 /* Script.js */; };
+		EACC217A2BABE88E00D85D47 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = EACC21322BABE88D00D85D47 /* Script.js */; };
+		EACC217B2BABE88E00D85D47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACC21332BABE88D00D85D47 /* ViewController.swift */; };
+		EACC217C2BABE88E00D85D47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACC21332BABE88D00D85D47 /* ViewController.swift */; };
+		EACC217D2BABE88E00D85D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EACC21342BABE88D00D85D47 /* Assets.xcassets */; };
+		EACC217E2BABE88E00D85D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EACC21342BABE88D00D85D47 /* Assets.xcassets */; };
+		EACC217F2BABE88E00D85D47 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACC21362BABE88D00D85D47 /* SafariWebExtensionHandler.swift */; };
+		EACC21802BABE88E00D85D47 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACC21362BABE88D00D85D47 /* SafariWebExtensionHandler.swift */; };
+		EACC21812BABE88E00D85D47 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = EACC21382BABE88D00D85D47 /* _locales */; };
+		EACC21822BABE88E00D85D47 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = EACC21382BABE88D00D85D47 /* _locales */; };
+		EACC21832BABE88E00D85D47 /* images in Resources */ = {isa = PBXBuildFile; fileRef = EACC21392BABE88D00D85D47 /* images */; };
+		EACC21842BABE88E00D85D47 /* images in Resources */ = {isa = PBXBuildFile; fileRef = EACC21392BABE88D00D85D47 /* images */; };
+		EACC21852BABE88E00D85D47 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = EACC213A2BABE88D00D85D47 /* manifest.json */; };
+		EACC21862BABE88E00D85D47 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = EACC213A2BABE88D00D85D47 /* manifest.json */; };
+		EACC21872BABE88E00D85D47 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = EACC213B2BABE88D00D85D47 /* background.js */; };
+		EACC21882BABE88E00D85D47 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = EACC213B2BABE88D00D85D47 /* background.js */; };
+		EACC21892BABE88E00D85D47 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = EACC213C2BABE88D00D85D47 /* content.js */; };
+		EACC218A2BABE88E00D85D47 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = EACC213C2BABE88D00D85D47 /* content.js */; };
+		EACC218B2BABE88E00D85D47 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = EACC213D2BABE88D00D85D47 /* popup.html */; };
+		EACC218C2BABE88E00D85D47 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = EACC213D2BABE88D00D85D47 /* popup.html */; };
+		EACC218D2BABE88E00D85D47 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = EACC213E2BABE88D00D85D47 /* popup.css */; };
+		EACC218E2BABE88E00D85D47 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = EACC213E2BABE88D00D85D47 /* popup.css */; };
+		EACC218F2BABE88E00D85D47 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = EACC213F2BABE88D00D85D47 /* popup.js */; };
+		EACC21902BABE88E00D85D47 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = EACC213F2BABE88D00D85D47 /* popup.js */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EACC21642BABE88E00D85D47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EACC21282BABE88C00D85D47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EACC21612BABE88E00D85D47;
+			remoteInfo = "SmartReader Extension (iOS)";
+		};
+		EACC216E2BABE88E00D85D47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EACC21282BABE88C00D85D47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EACC216B2BABE88E00D85D47;
+			remoteInfo = "SmartReader Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EACC21962BABE88E00D85D47 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EACC21632BABE88E00D85D47 /* SmartReader Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EACC219D2BABE88E00D85D47 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EACC216D2BABE88E00D85D47 /* SmartReader Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		EACC212F2BABE88D00D85D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
+		EACC21302BABE88D00D85D47 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		EACC21312BABE88D00D85D47 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		EACC21322BABE88D00D85D47 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		EACC21332BABE88D00D85D47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EACC21342BABE88D00D85D47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EACC21362BABE88D00D85D47 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		EACC21382BABE88D00D85D47 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
+		EACC21392BABE88D00D85D47 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		EACC213A2BABE88D00D85D47 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
+		EACC213B2BABE88D00D85D47 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
+		EACC213C2BABE88D00D85D47 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
+		EACC213D2BABE88D00D85D47 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
+		EACC213E2BABE88D00D85D47 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
+		EACC213F2BABE88D00D85D47 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
+		EACC21442BABE88D00D85D47 /* SmartReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EACC21472BABE88D00D85D47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EACC21492BABE88D00D85D47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EACC214C2BABE88D00D85D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EACC214F2BABE88D00D85D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EACC21512BABE88D00D85D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EACC21562BABE88E00D85D47 /* SmartReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EACC21582BABE88E00D85D47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EACC215B2BABE88E00D85D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EACC215D2BABE88E00D85D47 /* SmartReader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartReader.entitlements; sourceTree = "<group>"; };
+		EACC21622BABE88E00D85D47 /* SmartReader Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SmartReader Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EACC21672BABE88E00D85D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EACC216C2BABE88E00D85D47 /* SmartReader Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SmartReader Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EACC21712BABE88E00D85D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EACC21722BABE88E00D85D47 /* SmartReader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartReader.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EACC21412BABE88D00D85D47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EACC21532BABE88E00D85D47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EACC215F2BABE88E00D85D47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EACC21692BABE88E00D85D47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EACC21272BABE88C00D85D47 = {
+			isa = PBXGroup;
+			children = (
+				EACC212C2BABE88D00D85D47 /* Shared (App) */,
+				EACC21352BABE88D00D85D47 /* Shared (Extension) */,
+				EACC21462BABE88D00D85D47 /* iOS (App) */,
+				EACC21572BABE88E00D85D47 /* macOS (App) */,
+				EACC21662BABE88E00D85D47 /* iOS (Extension) */,
+				EACC21702BABE88E00D85D47 /* macOS (Extension) */,
+				EACC21452BABE88D00D85D47 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EACC212C2BABE88D00D85D47 /* Shared (App) */ = {
+			isa = PBXGroup;
+			children = (
+				EACC21332BABE88D00D85D47 /* ViewController.swift */,
+				EACC21342BABE88D00D85D47 /* Assets.xcassets */,
+				EACC212D2BABE88D00D85D47 /* Resources */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		EACC212D2BABE88D00D85D47 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EACC212E2BABE88D00D85D47 /* Main.html */,
+				EACC21302BABE88D00D85D47 /* Icon.png */,
+				EACC21312BABE88D00D85D47 /* Style.css */,
+				EACC21322BABE88D00D85D47 /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EACC21352BABE88D00D85D47 /* Shared (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				EACC21362BABE88D00D85D47 /* SafariWebExtensionHandler.swift */,
+				EACC21372BABE88D00D85D47 /* Resources */,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		EACC21372BABE88D00D85D47 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EACC21382BABE88D00D85D47 /* _locales */,
+				EACC21392BABE88D00D85D47 /* images */,
+				EACC213A2BABE88D00D85D47 /* manifest.json */,
+				EACC213B2BABE88D00D85D47 /* background.js */,
+				EACC213C2BABE88D00D85D47 /* content.js */,
+				EACC213D2BABE88D00D85D47 /* popup.html */,
+				EACC213E2BABE88D00D85D47 /* popup.css */,
+				EACC213F2BABE88D00D85D47 /* popup.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EACC21452BABE88D00D85D47 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EACC21442BABE88D00D85D47 /* SmartReader.app */,
+				EACC21562BABE88E00D85D47 /* SmartReader.app */,
+				EACC21622BABE88E00D85D47 /* SmartReader Extension.appex */,
+				EACC216C2BABE88E00D85D47 /* SmartReader Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EACC21462BABE88D00D85D47 /* iOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				EACC21472BABE88D00D85D47 /* AppDelegate.swift */,
+				EACC21492BABE88D00D85D47 /* SceneDelegate.swift */,
+				EACC214B2BABE88D00D85D47 /* LaunchScreen.storyboard */,
+				EACC214E2BABE88D00D85D47 /* Main.storyboard */,
+				EACC21512BABE88D00D85D47 /* Info.plist */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		EACC21572BABE88E00D85D47 /* macOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				EACC21582BABE88E00D85D47 /* AppDelegate.swift */,
+				EACC215A2BABE88E00D85D47 /* Main.storyboard */,
+				EACC215D2BABE88E00D85D47 /* SmartReader.entitlements */,
+			);
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		EACC21662BABE88E00D85D47 /* iOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				EACC21672BABE88E00D85D47 /* Info.plist */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		EACC21702BABE88E00D85D47 /* macOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				EACC21712BABE88E00D85D47 /* Info.plist */,
+				EACC21722BABE88E00D85D47 /* SmartReader.entitlements */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EACC21432BABE88D00D85D47 /* SmartReader (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EACC21972BABE88E00D85D47 /* Build configuration list for PBXNativeTarget "SmartReader (iOS)" */;
+			buildPhases = (
+				EACC21402BABE88D00D85D47 /* Sources */,
+				EACC21412BABE88D00D85D47 /* Frameworks */,
+				EACC21422BABE88D00D85D47 /* Resources */,
+				EACC21962BABE88E00D85D47 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EACC21652BABE88E00D85D47 /* PBXTargetDependency */,
+			);
+			name = "SmartReader (iOS)";
+			productName = "SmartReader (iOS)";
+			productReference = EACC21442BABE88D00D85D47 /* SmartReader.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EACC21552BABE88E00D85D47 /* SmartReader (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EACC219E2BABE88E00D85D47 /* Build configuration list for PBXNativeTarget "SmartReader (macOS)" */;
+			buildPhases = (
+				EACC21522BABE88E00D85D47 /* Sources */,
+				EACC21532BABE88E00D85D47 /* Frameworks */,
+				EACC21542BABE88E00D85D47 /* Resources */,
+				EACC219D2BABE88E00D85D47 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EACC216F2BABE88E00D85D47 /* PBXTargetDependency */,
+			);
+			name = "SmartReader (macOS)";
+			productName = "SmartReader (macOS)";
+			productReference = EACC21562BABE88E00D85D47 /* SmartReader.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EACC21612BABE88E00D85D47 /* SmartReader Extension (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EACC21932BABE88E00D85D47 /* Build configuration list for PBXNativeTarget "SmartReader Extension (iOS)" */;
+			buildPhases = (
+				EACC215E2BABE88E00D85D47 /* Sources */,
+				EACC215F2BABE88E00D85D47 /* Frameworks */,
+				EACC21602BABE88E00D85D47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SmartReader Extension (iOS)";
+			productName = "SmartReader Extension (iOS)";
+			productReference = EACC21622BABE88E00D85D47 /* SmartReader Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		EACC216B2BABE88E00D85D47 /* SmartReader Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EACC219A2BABE88E00D85D47 /* Build configuration list for PBXNativeTarget "SmartReader Extension (macOS)" */;
+			buildPhases = (
+				EACC21682BABE88E00D85D47 /* Sources */,
+				EACC21692BABE88E00D85D47 /* Frameworks */,
+				EACC216A2BABE88E00D85D47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SmartReader Extension (macOS)";
+			productName = "SmartReader Extension (macOS)";
+			productReference = EACC216C2BABE88E00D85D47 /* SmartReader Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EACC21282BABE88C00D85D47 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					EACC21432BABE88D00D85D47 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					EACC21552BABE88E00D85D47 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					EACC21612BABE88E00D85D47 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					EACC216B2BABE88E00D85D47 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = EACC212B2BABE88C00D85D47 /* Build configuration list for PBXProject "SmartReader" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EACC21272BABE88C00D85D47;
+			productRefGroup = EACC21452BABE88D00D85D47 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EACC21432BABE88D00D85D47 /* SmartReader (iOS) */,
+				EACC21552BABE88E00D85D47 /* SmartReader (macOS) */,
+				EACC21612BABE88E00D85D47 /* SmartReader Extension (iOS) */,
+				EACC216B2BABE88E00D85D47 /* SmartReader Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EACC21422BABE88D00D85D47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EACC21752BABE88E00D85D47 /* Icon.png in Resources */,
+				EACC214D2BABE88D00D85D47 /* Base in Resources */,
+				EACC21732BABE88E00D85D47 /* Base in Resources */,
+				EACC21792BABE88E00D85D47 /* Script.js in Resources */,
+				EACC217D2BABE88E00D85D47 /* Assets.xcassets in Resources */,
+				EACC21502BABE88D00D85D47 /* Base in Resources */,
+				EACC21772BABE88E00D85D47 /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EACC21542BABE88E00D85D47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EACC21762BABE88E00D85D47 /* Icon.png in Resources */,
+				EACC21782BABE88E00D85D47 /* Style.css in Resources */,
+				EACC215C2BABE88E00D85D47 /* Base in Resources */,
+				EACC217A2BABE88E00D85D47 /* Script.js in Resources */,
+				EACC217E2BABE88E00D85D47 /* Assets.xcassets in Resources */,
+				EACC21742BABE88E00D85D47 /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EACC21602BABE88E00D85D47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EACC21872BABE88E00D85D47 /* background.js in Resources */,
+				EACC218D2BABE88E00D85D47 /* popup.css in Resources */,
+				EACC218B2BABE88E00D85D47 /* popup.html in Resources */,
+				EACC21832BABE88E00D85D47 /* images in Resources */,
+				EACC21852BABE88E00D85D47 /* manifest.json in Resources */,
+				EACC21812BABE88E00D85D47 /* _locales in Resources */,
+				EACC21892BABE88E00D85D47 /* content.js in Resources */,
+				EACC218F2BABE88E00D85D47 /* popup.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EACC216A2BABE88E00D85D47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EACC21882BABE88E00D85D47 /* background.js in Resources */,
+				EACC218E2BABE88E00D85D47 /* popup.css in Resources */,
+				EACC218C2BABE88E00D85D47 /* popup.html in Resources */,
+				EACC21842BABE88E00D85D47 /* images in Resources */,
+				EACC21862BABE88E00D85D47 /* manifest.json in Resources */,
+				EACC21822BABE88E00D85D47 /* _locales in Resources */,
+				EACC218A2BABE88E00D85D47 /* content.js in Resources */,
+				EACC21902BABE88E00D85D47 /* popup.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EACC21402BABE88D00D85D47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EACC217B2BABE88E00D85D47 /* ViewController.swift in Sources */,
+				EACC21482BABE88D00D85D47 /* AppDelegate.swift in Sources */,
+				EACC214A2BABE88D00D85D47 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EACC21522BABE88E00D85D47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EACC217C2BABE88E00D85D47 /* ViewController.swift in Sources */,
+				EACC21592BABE88E00D85D47 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EACC215E2BABE88E00D85D47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EACC217F2BABE88E00D85D47 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EACC21682BABE88E00D85D47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EACC21802BABE88E00D85D47 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EACC21652BABE88E00D85D47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EACC21612BABE88E00D85D47 /* SmartReader Extension (iOS) */;
+			targetProxy = EACC21642BABE88E00D85D47 /* PBXContainerItemProxy */;
+		};
+		EACC216F2BABE88E00D85D47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EACC216B2BABE88E00D85D47 /* SmartReader Extension (macOS) */;
+			targetProxy = EACC216E2BABE88E00D85D47 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EACC212E2BABE88D00D85D47 /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EACC212F2BABE88D00D85D47 /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		EACC214B2BABE88D00D85D47 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EACC214C2BABE88D00D85D47 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EACC214E2BABE88D00D85D47 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EACC214F2BABE88D00D85D47 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EACC215A2BABE88E00D85D47 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EACC215B2BABE88E00D85D47 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EACC21912BABE88E00D85D47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EACC21922BABE88E00D85D47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		EACC21942BABE88E00D85D47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WQY45CL427;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "SmartReader Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qoli.SmartReader.Extension;
+				PRODUCT_NAME = "SmartReader Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EACC21952BABE88E00D85D47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WQY45CL427;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "SmartReader Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qoli.SmartReader.Extension;
+				PRODUCT_NAME = "SmartReader Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EACC21982BABE88E00D85D47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WQY45CL427;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = SmartReader;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qoli.SmartReader;
+				PRODUCT_NAME = SmartReader;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EACC21992BABE88E00D85D47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WQY45CL427;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = SmartReader;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qoli.SmartReader;
+				PRODUCT_NAME = SmartReader;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EACC219B2BABE88E00D85D47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/SmartReader.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WQY45CL427;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "SmartReader Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qoli.SmartReader.Extension;
+				PRODUCT_NAME = "SmartReader Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		EACC219C2BABE88E00D85D47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/SmartReader.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WQY45CL427;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "SmartReader Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qoli.SmartReader.Extension;
+				PRODUCT_NAME = "SmartReader Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		EACC219F2BABE88E00D85D47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/SmartReader.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WQY45CL427;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SmartReader;
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qoli.SmartReader;
+				PRODUCT_NAME = SmartReader;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		EACC21A02BABE88E00D85D47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/SmartReader.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WQY45CL427;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SmartReader;
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qoli.SmartReader;
+				PRODUCT_NAME = SmartReader;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EACC212B2BABE88C00D85D47 /* Build configuration list for PBXProject "SmartReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EACC21912BABE88E00D85D47 /* Debug */,
+				EACC21922BABE88E00D85D47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EACC21932BABE88E00D85D47 /* Build configuration list for PBXNativeTarget "SmartReader Extension (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EACC21942BABE88E00D85D47 /* Debug */,
+				EACC21952BABE88E00D85D47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EACC21972BABE88E00D85D47 /* Build configuration list for PBXNativeTarget "SmartReader (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EACC21982BABE88E00D85D47 /* Debug */,
+				EACC21992BABE88E00D85D47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EACC219A2BABE88E00D85D47 /* Build configuration list for PBXNativeTarget "SmartReader Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EACC219B2BABE88E00D85D47 /* Debug */,
+				EACC219C2BABE88E00D85D47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EACC219E2BABE88E00D85D47 /* Build configuration list for PBXNativeTarget "SmartReader (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EACC219F2BABE88E00D85D47 /* Debug */,
+				EACC21A02BABE88E00D85D47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EACC21282BABE88C00D85D47 /* Project object */;
+}
