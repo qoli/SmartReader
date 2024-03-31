@@ -134,6 +134,13 @@
   list-style-position: inside;
   margin: 0;
   padding: 0;
+  display: inline-block;
+}
+
+#receipt li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
 }
 
 #ReadabilityBar {

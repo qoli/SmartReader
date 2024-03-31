@@ -20,13 +20,7 @@
 
   "content_scripts": [
     {
-      "js": [
-        "Readability-readerable.js",
-        "Readability.js",
-        "content.js",
-        "chatgpt-api.js",
-        "marked.min.js"
-      ],
+      "js": ["Readability.js", "content.js", "chatgpt-api.js", "marked.min.js"],
       "css": ["readability.css"],
       "matches": ["*://*/*"]
     }
