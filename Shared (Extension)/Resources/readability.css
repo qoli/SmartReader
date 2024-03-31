@@ -31,6 +31,8 @@
   transform: translateX(-50%);
 
   bottom: 24px;
+
+  animation: slideIn 0.8s;
 }
 
 #ReadabilityFrame hr {
@@ -135,17 +137,24 @@
   margin: 0;
   padding: 0;
   display: inline-block;
+  margin-block: 0;
+  padding-block: 0;
+  padding-inline: 0;
 }
 
 #receipt li {
   display: inline-block;
   margin: 0;
   padding: 0;
+  margin-block: 0;
+  padding-block: 0;
+  padding-inline: 0;
 }
 
 #ReadabilityBar {
   display: block;
   z-index: 90002;
+  animation: fadeIndn 0.8s;
 }
 
 #ReadabilityBar #viewBar {
@@ -183,4 +192,32 @@
 
   line-height: 1px;
   border: none;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    display: none;
+  }
+  1% {
+    display: block;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    bottom: -200px;
+    display: none;
+  }
+  1% {
+    display: block;
+  }
+  100% {
+    opacity: 1;
+    bottom: 24px;
+  }
 }
