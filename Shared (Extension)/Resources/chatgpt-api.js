@@ -9,19 +9,23 @@ async function chatGPT_API_Completions(text) {
 
   let responseElem = document.getElementById("response");
 
-  let systemText = "你是一個文章概括高手。請按照下面的要求概括文章內容。";
+  let systemText = "你是一個文章概括專家。請按照下面的要求概括文章內容。";
   let assistantText = "";
   let promptText = `
-  為最後提供的文字內容進行按要求的總結。如果是其他語言，請翻譯到繁體中文。其中需要按下面的要求答覆，請注意保持答覆的格式，不需要增加額外的文字。
-  總結：簡短的一句話概括內容；
-  要點：對文字內容提出多個要點內容，並每一個要點都附加一個裝飾用的 emoji，每一個要點佔用一行，注意記得輸出換行符號；
-  關鍵字：給出關鍵字；
-  關聯的問題：為下面的文字內容，提出一些閱讀者可以追問的問題，最多給 3 個問題。
-  
-  下面為需要總結的文字內容：
+為最後提供的文字內容進行按要求的總結。如果是其他語言，請翻譯到繁體中文。
+請嚴格按照下面的格式進行輸出，在格式以外的地方，不需要多餘的文本內容。
+
+這裡是格式指導：
+總結：
+簡短的一句話概括內容，此單獨佔用一行，記得輸出換行符號；
+要點：
+對文字內容提出多個要點內容，並每一個要點都附加一個裝飾用的 emoji，每一個要點佔用一行，注意記得輸出換行符號；
+
+下面為需要總結的文字內容：
+<
   `;
 
-  let userText = promptText + text;
+  let userText = promptText + text + ">";
 
   if (text) {
     try {
@@ -127,10 +131,17 @@ async function typeSentence(
     i++;
   }
 
+  // END ...
   if (isReceipt) {
     let resultText = document.getElementById("response").innerHTML;
+
     document.getElementById("response").innerHTML = "";
-    document.getElementById("receipt").innerHTML = marked.parse(resultText);
+
+    document.getElementById("receiptTitle").innerHTML =
+      extractSummary(resultText);
+    document.getElementById("receipt").innerHTML = marked.parse(
+      postProcessText(excludeSummary(resultText))
+    );
   }
 
   return;
@@ -175,4 +186,28 @@ function getTimeColor() {
     color = "light";
   }
   return color;
+}
+
+function postProcessText(text) {
+  return text
+    .trim()
+    .replaceAll("  ", "")
+    .replaceAll("\t", "")
+    .replaceAll("\n\n", "")
+    .replaceAll(",,", "");
+}
+
+function extractSummary(text) {
+  const regex = /總結：([\s\S]+?)要點：/;
+  const match = text.match(regex);
+  if (match && match.length >= 2) {
+    return match[1];
+  }
+  return "";
+}
+
+function excludeSummary(text) {
+  const regex = /總結：([\s\S]+?)要點：/;
+  const excludedText = text.replace(regex, "");
+  return excludedText;
 }

@@ -593,54 +593,65 @@
 
     <div id="ReadabilityBar">
         <div id="viewBar">
-            <a href="javascript:void(0)" id="ReadabilityButton">Summarize</a>
+            <a href="javascript:void(0)" id="ReadabilityButton">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24.5333 7.46667L23.6 8.4M4 16H5.33333M16 4V5.33333M26.6667 16H28M7.46667 7.46667L8.4 8.4"
+                        stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                        d="M12 21.3333C10.8806 20.4938 10.0538 19.3233 9.63656 17.9878C9.21935 16.6522 9.23295 15.2192 9.67542 13.8918C10.1179 12.5644 10.9668 11.4098 12.1019 10.5917C13.237 9.77356 14.6008 9.33331 16 9.33331C17.3992 9.33331 18.7629 9.77356 19.898 10.5917C21.0332 11.4098 21.8821 12.5644 22.3245 13.8918C22.767 15.2192 22.7806 16.6522 22.3634 17.9878C21.9462 19.3233 21.1194 20.4938 20 21.3333C19.4794 21.8486 19.0874 22.4792 18.8558 23.1741C18.6242 23.869 18.5594 24.6087 18.6666 25.3333C18.6666 26.0406 18.3857 26.7188 17.8856 27.2189C17.3855 27.719 16.7072 28 16 28C15.2927 28 14.6145 27.719 14.1144 27.2189C13.6143 26.7188 13.3333 26.0406 13.3333 25.3333C13.4407 24.6087 13.3759 23.869 13.1443 23.1741C12.9127 22.4792 12.5206 21.8486 12 21.3333Z"
+                        stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M12.9333 22.6667H19.0667" stroke="black" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </a>
         </div>
     </div>
-    <div id="ReadabilityFrame">
-        <div id="response" class="typing"></div>
-        <div id="receipt">
-            <p>總結：劉德華因在意大利拍攝新片《無名之輩2》而被拍到近照，被指斷崖式衰老，但其實只是為了角色造型，網民讚揚其敬業。</p>
-            <p>要點：
-                🎬 劉德華在意大利拍攝新片《無名之輩2》，近照曝光被指斷崖式衰老。
-                👴 多年來劉德華維持Fit爆身形及靚仔形象，此次造型引發熱議。
-                👏 網民得知劉德華只是為了拍攝電影才有的新造型後，紛紛讚揚他的敬業。</p>
-            <p>關鍵字：劉德華、無名之輩2、拍攝、衰老、造型、敬業。</p>
-            <p>關聯的問題：</p>
-            <ol>
-                <li>劉德華的近照引發了熱議，你對他的新造型有何看法？</li>
-                <li>劉德華多年來一直保持著靚仔形象，你認為這對於他的事業有何影響？</li>
-                <li>對於演員來說，你認為保持形象和敬業態度哪個更重要？</li>
-            </ol>
+    <div id="ReadabilityFrame" style="display: block;">
+        <div id="ReadabilityTitle">
+            <p class="safariExtensionTitle">AI Summary</p>
+            <p class="safariExtensionHost" id="ReadabilityHost">v2ex.com</p>
         </div>
+        <hr>
+        <div id="response" class="typing"></div>
+        <div id="receiptTitle">
+            人生發展應該持續成長，不宜早期就考慮退休；讀書多少會限制思維，而讀書少的人轉行速度快。
+        </div>
+        <div id="receipt">
+            <p>👴 初入職場的年輕人不應該過早考慮退休，應該持續成長和提升自己。
+                📚 過度讀書可能會限制思維，而讀書少的人轉行速度可能會更快。
+                💼 商場變化迅速，例如從手機銷售到維修服務的轉變，讀書少的人可能更容易適應這種變化。</p>
+        </div>
+        <div id="ReadabilityClose">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4L4 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                </path>
+                <path d="M4 4L12 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                </path>
+            </svg>
+        </div>
+
 
     </div>
 
 
     <script>
-        function runReadabilityView() {
-            let readabilityButton = document.querySelector("#ReadabilityButton");
-            if (readabilityButton.innerHTML == "Summarize") {
-                viewable();
-                readabilityButton.innerHTML = "Hide";
-            } else {
-                hideView();
-                readabilityButton.innerHTML = "Summarize";
-            }
+        function hideView() {
+            document.querySelector("#ReadabilityFrame").style.display = "none";
+            document.querySelector("#ReadabilityBar").style.display = "block";
         }
 
-        function hideView() {
-            let readabilityFrameView = document.querySelector("#ReadabilityFrame");
-            readabilityFrameView.style.display = "none";
-        }
+        document
+            .querySelector("#ReadabilityClose")
+            .addEventListener("click", hideView);
 
         function viewable() {
-            let readabilityFrameView = document.querySelector("#ReadabilityFrame");
-            readabilityFrameView.style.display = "block";
+            document.querySelector("#ReadabilityFrame").style.display = "block";
+            document.querySelector("#ReadabilityBar").style.display = "none";
         }
 
         document
             .querySelector("#ReadabilityButton")
-            .addEventListener("click", runReadabilityView);
+            .addEventListener("click", viewable);
     </script>
 
     <div>
@@ -657,7 +668,6 @@
             巴爾的摩橋樑坍塌事故造成六名施工工人失蹤，已經找到兩名工人的屍體，搜救工作仍在進行。
         </div>
     </div>
-
 </body>
 
 </html>
