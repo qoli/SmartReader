@@ -19,5 +19,7 @@ document
 document
   .querySelector("#sendNativeMessage")
   .addEventListener("click", function () {
-    console.log("111");
+    browser.runtime.sendNativeMessage("application.id", {
+      message: "Hello from sendNativeMessage page",
+    });
   });

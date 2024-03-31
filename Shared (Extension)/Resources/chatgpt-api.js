@@ -98,7 +98,7 @@ async function chatGPT_API_Completions(text) {
             return;
           }
           const token = JSON.parse(data.substring(6)).choices[0].delta.content;
-          console.log(token);
+
           typeSentence(token, responseElem, false, true);
         });
         if (dataDone) {
