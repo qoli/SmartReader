@@ -1,6 +1,13 @@
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    console.log("Received request: ", request);
+  console.log(
+    "Background / Received request: ",
+    request.mode,
+    request.currentURL
+  );
 
-    if (request.greeting === "hello")
-        sendResponse({ farewell: "goodbye" });
+  if (request.mode === "sendReader") {
+    sendResponse({
+      callback: "ok",
+    });
+  }
 });
