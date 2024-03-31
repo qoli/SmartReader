@@ -41,6 +41,7 @@
   margin: 0;
   padding: 0;
   margin: 8px 0;
+  display: block !important;
 }
 
 #response,
@@ -172,4 +173,7 @@
 
   color: rgba(0, 0, 0, 0.75);
   text-decoration: none;
+
+  line-height: 1px;
+  border: none;
 }

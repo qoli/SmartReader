@@ -85,10 +85,7 @@ async function chatGPT_API_Completions(text) {
       console.error("ERROR: " + error);
     }
   } else {
-    await typeSentence(
-      "Please enter a prompt and select an engine",
-      responseElem
-    );
+    await typeSentence("未能構建 userText", responseElem);
   }
 }
 

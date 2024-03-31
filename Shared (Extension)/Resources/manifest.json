@@ -44,5 +44,5 @@
     }
   },
 
-  "permissions": ["tabs", "activeTab", "messages"]
+  "permissions": ["tabs", "activeTab", "messages", "nativeMessaging"]
 }

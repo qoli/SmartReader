@@ -5,7 +5,15 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
     runSummary();
 
     sendResponse({
-      callback: "ok",
+      callback: "runSummary-ok",
+    });
+  }
+
+  if (request == "coreContentText") {
+    buildCoreContentText();
+
+    sendResponse({
+      callback: "coreContentText-ok",
     });
   }
 });
@@ -100,12 +108,15 @@ function callGPT() {
 }
 
 function getCoreContentText() {
-  if (isProbablyReaderable(document)) {
-    let article = new Readability(document.cloneNode(true), {}).parse();
-    console.log("...isProbablyReaderable");
-    console.log(article.textContent);
-    return postProcessText(article.textContent);
-  }
+  return buildCoreContentText();
+}
+
+function buildCoreContentText() {
+  let article = new Readability(document.cloneNode(true), {}).parse();
+  console.log("...isProbablyReaderable");
+  console.log(article);
+  console.log(article.textContent, postProcessText(article.textContent));
+  return postProcessText(article.textContent);
 }
 
 function postProcessText(text) {
