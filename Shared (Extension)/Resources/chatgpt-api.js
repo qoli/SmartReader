@@ -4,10 +4,15 @@ const API_URL = "https://www.gptapi.us/v1/chat/completions";
 const MIN_CHARS = 0;
 let userSpan, charSpan;
 
+let gptMessage = "";
+
 async function chatGPT_API_Completions(text) {
   //Cache DOM elements to avoid unnecessary DOM traversals
 
   let responseElem = document.getElementById("response");
+
+  responseElem.innerText = "Loading...";
+  gptMessage = "";
 
   let systemText = "你是一個文章概括專家。請按照下面的要求概括文章內容。";
   let assistantText = "";
@@ -22,8 +27,7 @@ async function chatGPT_API_Completions(text) {
 對文字內容提出多個要點內容，並每一個要點都附加一個裝飾用的 emoji，每一個要點佔用一行，注意記得輸出換行符號；
 
 下面為需要總結的文字內容：
-<
-  `;
+<`;
 
   let userText = promptText + text + ">";
 
@@ -65,24 +69,54 @@ async function chatGPT_API_Completions(text) {
           Authorization: "Bearer " + API_KEY,
         },
         body: JSON.stringify({
-          // stream: true,
+          stream: true,
           model: "gpt-3.5-turbo",
           messages: messages,
           temperature: 0,
         }),
       });
 
+      const reader = response.body
+        ?.pipeThrough(new TextDecoderStream())
+        .getReader();
+
+      if (!reader) return;
+
+      responseElem.innerText = "";
+
+      while (true) {
+        // eslint-disable-next-line no-await-in-loop
+        const { value, done } = await reader.read();
+        if (done) break;
+        let dataDone = false;
+        const arr = value.split("\n");
+        arr.forEach((data) => {
+          if (data.length === 0) return; // ignore empty message
+          if (data.startsWith(":")) return; // ignore sse comment message
+          if (data === "data: [DONE]") {
+            dataDone = true;
+            return;
+          }
+          const token = JSON.parse(data.substring(6)).choices[0].delta.content;
+          console.log(token);
+          typeSentence(token, responseElem, false, true);
+        });
+        if (dataDone) {
+          console.log("#Loop", dataDone);
+          typeSentence("", responseElem, dataDone, true);
+          break;
+        }
+      }
+
       if (!response.ok) {
         console.error(
           "HTTP ERROR: " + response.status + "\n" + response.statusText
         );
         typeSentence("HTTP ERROR: " + response.status, responseElem);
-      } else {
-        const data = await response.json();
-        typeSentence(createResponse(data), responseElem, data, true);
       }
     } catch (error) {
       console.error("ERROR: " + error);
+      typeSentence("ERROR: " + error, responseElem);
     }
   } else {
     await typeSentence("未能構建 userText", responseElem);
@@ -112,77 +146,25 @@ async function typeSentence(
   sentence,
   elementReference,
   data,
-  isReceipt = false,
-  delay = 30
+  isReceipt = false
 ) {
-  elementReference.innerText = "";
-  if (sentence === "HTTP ERROR: 401") {
-    sentence +=
-      " — Please make sure that your Open AI API Key has been set properly.";
-  }
-  const letters = sentence.split("");
-  let i = 0;
-  while (i < letters.length) {
-    await waitForMs(delay);
-    elementReference.append(letters[i]);
-    i++;
-  }
+  gptMessage += sentence;
+  elementReference.innerText += gptMessage;
 
   // END ...
   if (isReceipt) {
     let resultText = document.getElementById("response").innerHTML;
 
     document.getElementById("response").innerHTML = "";
-
-    document.getElementById("receiptTitle").innerHTML =
-      extractSummary(resultText);
-    document.getElementById("receipt").innerHTML = marked.parse(
-      postProcessText(excludeSummary(resultText))
+    document.getElementById("receiptTitle").innerHTML = removeBR(
+      extractSummary(resultText)
+    );
+    document.getElementById("receipt").innerHTML = removeParagraphBrFromStart(
+      marked.parse(postProcessText(excludeSummary(resultText)))
     );
   }
 
   return;
-}
-
-function waitForMs(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-function createReceipt() {
-  return "";
-}
-
-function setRow(name, value, setWordCount) {
-  let description = value;
-  if (setWordCount === true) {
-    description = value + " (~" + +Math.round(value * 0.75) + " words)";
-  }
-  return "<tr><td>" + name + "</td><td>" + description + "</td></tr>";
-}
-
-function calculateCost(engineName, totalTokens, wordCount = false) {
-  let totalCost = 0;
-  //Prices per 1000 tokens
-  const CHATGPT_PRICE = 0.002;
-
-  let pricePerToken = totalTokens / 1000;
-  totalCost = CHATGPT_PRICE * pricePerToken;
-
-  return totalCost.toFixed(10);
-}
-
-function convertEpochToDateTime(epoch) {
-  let date = new Date(epoch * 1000);
-  return date.toLocaleString();
-}
-
-function getTimeColor() {
-  let color = "dark";
-  const currentHour = new Date().getHours();
-  if (currentHour >= 6 && currentHour < 19) {
-    color = "light";
-  }
-  return color;
 }
 
 function postProcessText(text) {
@@ -192,6 +174,10 @@ function postProcessText(text) {
     .replaceAll("\t", "")
     .replaceAll("\n\n", "")
     .replaceAll(",,", "");
+}
+
+function removeBR(text) {
+  return text.trim().replaceAll("<br>", "");
 }
 
 function extractSummary(text) {
@@ -207,4 +193,9 @@ function excludeSummary(text) {
   const regex = /總結：([\s\S]+?)要點：/;
   const excludedText = text.replace(regex, "");
   return excludedText;
+}
+
+function removeParagraphBrFromStart(inputString) {
+  var regex = /^(<p><br>)/;
+  return inputString.replace(regex, "<p>");
 }

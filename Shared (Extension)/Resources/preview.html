@@ -592,7 +592,7 @@
     </div>
 
     <div id="ReadabilityBar">
-        <div id="viewBar">
+        <div id="viewBar" class="shine">
             <a href="javascript:void(0)" id="ReadabilityButton">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M24.5333 7.46667L23.6 8.4M4 16H5.33333M16 4V5.33333M26.6667 16H28M7.46667 7.46667L8.4 8.4"
@@ -606,33 +606,31 @@
             </a>
         </div>
     </div>
-    <div id="ReadabilityFrame" style="display: block;">
-        <div id="ReadabilityTitle">
-            <p class="safariExtensionTitle">AI Summary</p>
-            <p class="safariExtensionHost" id="ReadabilityHost">v2ex.com</p>
+    <div id="ReadabilityFrame">
+        <div class="safariExtensionUserInfo">
+            <p class="safariExtensionTitle" id="ReadabilityTitle">AI Summary</p>
+            <p class="safariExtensionHost" id="ReadabilityHost">www.bbc.com</p>
         </div>
         <hr>
+
         <div id="response" class="typing"></div>
-        <div id="receiptTitle">
-            人生發展應該持續成長，不宜早期就考慮退休；讀書多少會限制思維，而讀書少的人轉行速度快。
-        </div>
+        <div id="receiptTitle">曼城與阿森納在伊蒂哈德球場的比賽以0-0的平局告終，這使得利物浦在英超聯賽中處於領先地位。</div>
         <div id="receipt">
-            <p>👴 初入職場的年輕人不應該過早考慮退休，應該持續成長和提升自己。
-                📚 過度讀書可能會限制思維，而讀書少的人轉行速度可能會更快。
-                💼 商場變化迅速，例如從手機銷售到維修服務的轉變，讀書少的人可能更容易適應這種變化。</p>
+            <p>1. 🛡️ 雖然曼城和阿森納都未能得分，但是阻礙了曼城的進攻，進而對利物浦有利。<br>2. 🚫 曼城在這場比賽中無法打破對手的防線，而阿森納展示了堅韌性和組織性。<br>3. ⚽
+                雖然機會有限，但兩支球隊都有一些機會得分，但最終未能得分。<br>4. 🤕 曼城的哈蘭德在比賽中受傷，這可能對球隊的未來造成影響。<br>5. 🏆 利物浦現在領先英超聯賽，而曼城和阿森納則落後兩分和三分。
+            </p>
         </div>
         <div id="ReadabilityClose">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 4L4 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                </path>
-                <path d="M4 4L12 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                </path>
+                <path d="M12 4L4 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="--noir-inline-color: #959eae;" data-noir-inline-color=""></path>
+                <path d="M4 4L12 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="--noir-inline-color: #959eae;" data-noir-inline-color=""></path>
             </svg>
         </div>
 
 
     </div>
-
 
     <script>
         function hideView() {
@@ -640,14 +638,14 @@
             document.querySelector("#ReadabilityBar").style.display = "block";
         }
 
-        document
-            .querySelector("#ReadabilityClose")
-            .addEventListener("click", hideView);
-
         function viewable() {
             document.querySelector("#ReadabilityFrame").style.display = "block";
             document.querySelector("#ReadabilityBar").style.display = "none";
         }
+
+        document
+            .querySelector("#ReadabilityClose")
+            .addEventListener("click", hideView);
 
         document
             .querySelector("#ReadabilityButton")

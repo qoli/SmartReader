@@ -76,7 +76,7 @@
   display: inline-block;
 }
 
-#ReadabilityTitle p {
+.safariExtensionUserInfo p {
   margin: 0;
   padding: 0;
 }
@@ -91,12 +91,13 @@
   font-size: 12px;
   line-height: 14px;
   text-align: left;
-  color: #4b4b4b;
+  font-weight: 700;
+  color: #000000;
 }
 
 .safariExtensionHost {
-  font-weight: 700;
-  color: #000000;
+  font-weight: 400;
+  color: #4b4b4b;
 }
 
 #ReadabilityClose {

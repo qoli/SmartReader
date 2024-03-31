@@ -39,8 +39,8 @@ function insertHtml() {
 
   var htmlSourceCode = `
   <div id="ReadabilityBar">
-  <div id="viewBar">
-      <a href="javascript:void(0)" id="ReadabilityButton">
+  <div id="viewBar" class="shine" >
+      <a href="javascript:void(0)" id="ReadabilityButton" >
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M24.5333 7.46667L23.6 8.4M4 16H5.33333M16 4V5.33333M26.6667 16H28M7.46667 7.46667L8.4 8.4"
                   stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -54,9 +54,9 @@ function insertHtml() {
   </div>
 </div>
 <div id="ReadabilityFrame">
-  <div id="ReadabilityTitle">
-      <p class="safariExtensionTitle">AI Summary</p>
-      <p class="safariExtensionHost" id="ReadabilityHost">bbc.com</p>
+  <div class="safariExtensionUserInfo">
+      <p class="safariExtensionTitle" id="ReadabilityTitle">AI Summary</p>
+      <p class="safariExtensionHost" id="ReadabilityHost">www.bbc.com</p>
   </div>
   <hr />
 
@@ -97,26 +97,21 @@ function runSummary() {
 }
 
 function callGPT() {
-  let response = document.querySelector("#response");
-  response.innerHTML = "正在加載中...";
+  let article = new Readability(document.cloneNode(true), {}).parse();
 
-  let coreText = getCoreContentText();
+  if (!article) {
+    return;
+  }
+
+  document.querySelector("#response").innerHTML = "";
+  console.log("...isProbablyReaderable");
+  let coreText = postProcessText(article.textContent);
+
   document.querySelector("#receiptTitle").innerHTML = "";
   document.querySelector("#receipt").innerHTML = "";
+  document.querySelector("#ReadabilityTitle").innerHTML = article.title;
   document.querySelector("#ReadabilityHost").innerHTML = window.location.host;
   chatGPT_API_Completions(coreText);
-}
-
-function getCoreContentText() {
-  return buildCoreContentText();
-}
-
-function buildCoreContentText() {
-  let article = new Readability(document.cloneNode(true), {}).parse();
-  console.log("...isProbablyReaderable");
-  console.log(article);
-  console.log(article.textContent, postProcessText(article.textContent));
-  return postProcessText(article.textContent);
 }
 
 function postProcessText(text) {
