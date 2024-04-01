@@ -15,11 +15,21 @@
     "service_worker": "background.js",
     "persistent": false
   },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  },
+  "host_permissions": ["*://*/*"],
   "content_scripts": [
     {
-      "js": ["Readability.js", "content.js", "chatgpt-api.js", "marked.min.js"],
+      "js": [
+        "loadingBase64.js",
+        "Readability.js",
+        "chatgpt-api.js",
+        "marked.min.js",
+        "content.js"
+      ],
       "css": ["readability.css"],
-      "matches": ["*://*/*"]
+      "matches": ["<all_urls>"]
     }
   ],
   "action": {
@@ -33,5 +43,15 @@
       "72": "images/toolbar-icon-72.png"
     }
   },
-  "permissions": ["tabs", "activeTab", "messages", "nativeMessaging"]
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "messages",
+    "nativeMessaging",
+    "storage"
+  ],
+  "web_accessible_resources": {
+    "resources": ["images/loading.gif"],
+    "matches": ["<all_urls>"]
+  }
 }

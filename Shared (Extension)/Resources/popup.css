@@ -3,6 +3,7 @@
 }
 
 body {
+  min-width: 350px;
   padding: 10px;
   font-family: system-ui;
   text-align: left;
@@ -10,4 +11,46 @@ body {
 
 @media (prefers-color-scheme: dark) {
   /* Dark Mode styles go here. */
+}
+
+.floatLeft {
+  float: left;
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.titleText h1,
+.titleText h5 {
+  margin: 0;
+  padding: 0;
+}
+
+#ReadabilityLoadingIMG {
+  margin-top: 6px;
+  padding-right: 12px;
+}
+
+.titleText h5 {
+  font-weight: 300;
+  opacity: 0.5;
+}
+
+hr {
+  background: none;
+  color: none;
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 0;
+  padding: 0;
+  margin: 8px 0;
+  display: block !important;
+  opacity: 0.2;
 }

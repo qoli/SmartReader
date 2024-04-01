@@ -55,23 +55,29 @@ function insertHtml() {
 </div>
 <div id="ReadabilityFrame">
   <div class="safariExtensionUserInfo">
-      <p class="safariExtensionTitle" id="ReadabilityTitle">AI Summary</p>
-      <p class="safariExtensionHost" id="ReadabilityHost">www.bbc.com</p>
+      <p class="safariExtensionTitle" id="ReadabilityTitle">Eison</p>
+      <p class="safariExtensionHost" id="ReadabilityHost">www</p>
   </div>
   <hr />
+
+  <div id="ReadabilityLoading">
+  <img id="ReadabilityLoadingIMG" src="${lottieURL}" height="48" width="48" alt="loading">
+  <span id="ReadabilityLoadingText" >...</span>
+  </div>
 
   <div id="response" class="typing"></div>
   <div id="receiptTitle"></div>
   <div id="receipt"></div>
+
   <div id="ReadabilityClose">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 4L4 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           <path d="M4 4L12 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
   </div>
-
-
+  
 </div>
+
   `;
 
   document.body.insertAdjacentHTML("beforeend", htmlSourceCode);

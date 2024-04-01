@@ -100,6 +100,23 @@
   color: #4b4b4b;
 }
 
+#ReadabilityLoading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 16px;
+}
+
+#ReadabilityLoading span {
+  padding-top: 6px;
+  font-size: 10px;
+  color: #000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Symbol", "Segoe UI Emoji",
+    "Noto Color Emoji", sans-serif !important;
+}
+
 #ReadabilityClose {
   display: flex;
   flex-direction: row;
@@ -195,13 +212,39 @@
   border: none;
 }
 
+.fadeIn {
+  animation: fadeIn 0.8s;
+}
+
+.fadeOut {
+  animation: fadeOut 0.8s;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    display: flex !important;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    display: none !important;
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  animation: fadeOut 1s ease-in-out;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    display: none;
+    display: none !important;
   }
   1% {
-    display: block;
+    display: flex !important;
   }
   100% {
     opacity: 1;
@@ -212,10 +255,10 @@
   0% {
     opacity: 0;
     bottom: -200px;
-    display: none;
+    display: none !important;
   }
   1% {
-    display: block;
+    display: block !important;
   }
   100% {
     opacity: 1;

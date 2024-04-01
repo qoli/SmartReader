@@ -23,3 +23,6 @@ document
       message: "Hello from sendNativeMessage page",
     });
   });
+
+let lottieURL = browser.runtime.getURL("images/loading.gif");
+document.querySelector("#ReadabilityLoadingIMG").src = lottieURL;

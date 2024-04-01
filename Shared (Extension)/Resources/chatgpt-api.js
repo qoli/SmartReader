@@ -11,7 +11,8 @@ async function chatGPT_API_Completions(text) {
 
   let responseElem = document.getElementById("response");
 
-  responseElem.innerText = "Loading...";
+  callLoading();
+  responseElem.innerText = "";
   gptMessage = "";
 
   let systemText = "你是一個文章概括專家。請按照下面的要求概括文章內容。";
@@ -32,58 +33,60 @@ async function chatGPT_API_Completions(text) {
   let userText = promptText + text + ">";
 
   if (text) {
+    const messages = [];
+
+    // add the system message
+    const systemMessage = {
+      role: "system",
+      content: systemText,
+    };
+    if (systemText.length > 0) {
+      messages.push(systemMessage);
+    }
+
+    // add the assistant message
+    const assistantMessage = {
+      role: "assistant",
+      content: assistantText,
+    };
+    if (assistantText.length > 0) {
+      messages.push(assistantMessage);
+    }
+
+    // add the user message
+    const userMessage = {
+      role: "user",
+      content: userText,
+    };
+    if (userText.length > 0) {
+      messages.push(userMessage);
+    }
+
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + API_KEY,
+      },
+      body: JSON.stringify({
+        stream: true,
+        model: "gpt-3.5-turbo",
+        messages: messages,
+        temperature: 0,
+      }),
+    });
+
+    const reader = response.body
+      ?.pipeThrough(new TextDecoderStream())
+      .getReader();
+
+    if (!reader) return;
+
+    responseElem.innerText = "";
+
+    hideLoading();
+
     try {
-      const messages = [];
-
-      // add the system message
-      const systemMessage = {
-        role: "system",
-        content: systemText,
-      };
-      if (systemText.length > 0) {
-        messages.push(systemMessage);
-      }
-
-      // add the assistant message
-      const assistantMessage = {
-        role: "assistant",
-        content: assistantText,
-      };
-      if (assistantText.length > 0) {
-        messages.push(assistantMessage);
-      }
-
-      // add the user message
-      const userMessage = {
-        role: "user",
-        content: userText,
-      };
-      if (userText.length > 0) {
-        messages.push(userMessage);
-      }
-
-      const response = await fetch(API_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + API_KEY,
-        },
-        body: JSON.stringify({
-          stream: true,
-          model: "gpt-3.5-turbo",
-          messages: messages,
-          temperature: 0,
-        }),
-      });
-
-      const reader = response.body
-        ?.pipeThrough(new TextDecoderStream())
-        .getReader();
-
-      if (!reader) return;
-
-      responseElem.innerText = "";
-
       while (true) {
         // eslint-disable-next-line no-await-in-loop
         const { value, done } = await reader.read();
@@ -103,20 +106,23 @@ async function chatGPT_API_Completions(text) {
         });
         if (dataDone) {
           console.log("#Loop", dataDone);
-          typeSentence("", responseElem, dataDone, true);
+          typeSentence("", responseElem, true, true);
           break;
         }
       }
-
-      if (!response.ok) {
-        console.error(
-          "HTTP ERROR: " + response.status + "\n" + response.statusText
-        );
-        typeSentence("HTTP ERROR: " + response.status, responseElem);
-      }
     } catch (error) {
-      console.error("ERROR: " + error);
-      typeSentence("ERROR: " + error, responseElem);
+      typeSentence(
+        "ERROR:" + error + " - " + response.body,
+        responseElem,
+        dataDone
+      );
+    }
+
+    if (!response.ok) {
+      console.error(
+        "HTTP ERROR: " + response.status + "\n" + response.statusText
+      );
+      typeSentence("HTTP ERROR: " + response.status, responseElem);
     }
   } else {
     await typeSentence("未能構建 userText", responseElem);
@@ -159,7 +165,7 @@ async function typeSentence(
     document.getElementById("receiptTitle").innerHTML = removeBR(
       extractSummary(resultText)
     );
-    document.getElementById("receipt").innerHTML = removeParagraphBrFromStart(
+    document.getElementById("receipt").innerHTML = formatMarkdown(
       marked.parse(postProcessText(excludeSummary(resultText)))
     );
   }
@@ -195,7 +201,22 @@ function excludeSummary(text) {
   return excludedText;
 }
 
-function removeParagraphBrFromStart(inputString) {
-  var regex = /^(<p><br>)/;
-  return inputString.replace(regex, "<p>");
+function formatMarkdown(inputString) {
+  return inputString.replace(/^(<p><br>)/, "<p>").replace(/<br><br>/g, "<br>");
+}
+
+function callLoading() {
+  document.querySelector("#ReadabilityLoading").style.display = "flex";
+  document.querySelector("#ReadabilityLoading").classList.remove("fadeOut");
+  document.querySelector("#ReadabilityLoading").classList.add("fadeIn");
+  console.log("callLoading");
+}
+
+function hideLoading() {
+  document.querySelector("#ReadabilityLoading").classList.remove("fadeIn");
+  document.querySelector("#ReadabilityLoading").classList.add("fadeOut");
+  console.log("hideLoading");
+  setTimeout(() => {
+    document.querySelector("#ReadabilityLoading").style.display = "none";
+  }, 800);
 }

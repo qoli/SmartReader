@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA26F9B62BBABD2300FFCD76 /* loadingBase64.js in Resources */ = {isa = PBXBuildFile; fileRef = EA26F9B52BBABD2300FFCD76 /* loadingBase64.js */; };
+		EA26F9B72BBABD2300FFCD76 /* loadingBase64.js in Resources */ = {isa = PBXBuildFile; fileRef = EA26F9B52BBABD2300FFCD76 /* loadingBase64.js */; };
 		EA2E1CA32BB80CA900ABEF69 /* Readability.js in Resources */ = {isa = PBXBuildFile; fileRef = EA2E1CA02BB80CA900ABEF69 /* Readability.js */; };
 		EA2E1CA42BB80CA900ABEF69 /* Readability.js in Resources */ = {isa = PBXBuildFile; fileRef = EA2E1CA02BB80CA900ABEF69 /* Readability.js */; };
 		EA2E1CA62BB81D8D00ABEF69 /* readability.css in Resources */ = {isa = PBXBuildFile; fileRef = EA2E1CA52BB81D8D00ABEF69 /* readability.css */; };
@@ -98,6 +100,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EA26F9B52BBABD2300FFCD76 /* loadingBase64.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = loadingBase64.js; sourceTree = "<group>"; };
 		EA2E1CA02BB80CA900ABEF69 /* Readability.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Readability.js; sourceTree = "<group>"; };
 		EA2E1CA52BB81D8D00ABEF69 /* readability.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = readability.css; sourceTree = "<group>"; };
 		EA2E1CA82BB85DDC00ABEF69 /* chatgpt-api.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "chatgpt-api.js"; sourceTree = "<group>"; };
@@ -216,6 +219,7 @@
 				EACC21392BABE88D00D85D47 /* images */,
 				EACC213A2BABE88D00D85D47 /* manifest.json */,
 				EACC213B2BABE88D00D85D47 /* background.js */,
+				EA26F9B52BBABD2300FFCD76 /* loadingBase64.js */,
 				EACC213C2BABE88D00D85D47 /* content.js */,
 				EA2E1CA82BB85DDC00ABEF69 /* chatgpt-api.js */,
 				EA2E1CAB2BB8722000ABEF69 /* marked.min.js */,
@@ -440,6 +444,7 @@
 				EA2E1CA92BB85DDC00ABEF69 /* chatgpt-api.js in Resources */,
 				EACC21892BABE88E00D85D47 /* content.js in Resources */,
 				EA2E1CA62BB81D8D00ABEF69 /* readability.css in Resources */,
+				EA26F9B62BBABD2300FFCD76 /* loadingBase64.js in Resources */,
 				EACC218F2BABE88E00D85D47 /* popup.js in Resources */,
 				EA2E1CA32BB80CA900ABEF69 /* Readability.js in Resources */,
 			);
@@ -459,6 +464,7 @@
 				EA2E1CAA2BB85DDC00ABEF69 /* chatgpt-api.js in Resources */,
 				EACC218A2BABE88E00D85D47 /* content.js in Resources */,
 				EA2E1CA72BB81D8D00ABEF69 /* readability.css in Resources */,
+				EA26F9B72BBABD2300FFCD76 /* loadingBase64.js in Resources */,
 				EACC21902BABE88E00D85D47 /* popup.js in Resources */,
 				EA2E1CA42BB80CA900ABEF69 /* Readability.js in Resources */,
 			);

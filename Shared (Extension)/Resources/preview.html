@@ -608,18 +608,21 @@
     </div>
     <div id="ReadabilityFrame">
         <div class="safariExtensionUserInfo">
-            <p class="safariExtensionTitle" id="ReadabilityTitle">AI Summary</p>
+            <p class="safariExtensionTitle" id="ReadabilityTitle">Eison · 愛省流君</p>
             <p class="safariExtensionHost" id="ReadabilityHost">www.bbc.com</p>
         </div>
         <hr>
 
-        <div id="response" class="typing"></div>
-        <div id="receiptTitle">曼城與阿森納在伊蒂哈德球場的比賽以0-0的平局告終，這使得利物浦在英超聯賽中處於領先地位。</div>
-        <div id="receipt">
-            <p>1. 🛡️ 雖然曼城和阿森納都未能得分，但是阻礙了曼城的進攻，進而對利物浦有利。<br>2. 🚫 曼城在這場比賽中無法打破對手的防線，而阿森納展示了堅韌性和組織性。<br>3. ⚽
-                雖然機會有限，但兩支球隊都有一些機會得分，但最終未能得分。<br>4. 🤕 曼城的哈蘭德在比賽中受傷，這可能對球隊的未來造成影響。<br>5. 🏆 利物浦現在領先英超聯賽，而曼城和阿森納則落後兩分和三分。
-            </p>
+        <div id="ReadabilityLoading">
+            <img src="http://127.0.0.1:3000/Shared (Extension)/Resources/images/loading.gif " height="48" width="48"
+                alt="loading">
+            <span>...</span>
         </div>
+        <div id="response" class="typing"></div>
+        <div id="receiptTitle"></div>
+        <div id="receipt"></div>
+
+
         <div id="ReadabilityClose">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 4L4 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -629,8 +632,8 @@
             </svg>
         </div>
 
-
     </div>
+
 
     <script>
         function hideView() {
@@ -642,6 +645,8 @@
             document.querySelector("#ReadabilityFrame").style.display = "block";
             document.querySelector("#ReadabilityBar").style.display = "none";
         }
+
+        let fullURL = browser.runtime.getURL("beasts/frog.html");
 
         document
             .querySelector("#ReadabilityClose")
