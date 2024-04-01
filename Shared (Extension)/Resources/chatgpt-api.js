@@ -86,6 +86,8 @@ async function chatGPT_API_Completions(text) {
 
     hideLoading();
 
+    let errorResponse;
+
     try {
       while (true) {
         // eslint-disable-next-line no-await-in-loop
@@ -93,6 +95,9 @@ async function chatGPT_API_Completions(text) {
         if (done) break;
         let dataDone = false;
         const arr = value.split("\n");
+
+        errorResponse = arr[0];
+
         arr.forEach((data) => {
           if (data.length === 0) return; // ignore empty message
           if (data.startsWith(":")) return; // ignore sse comment message
@@ -110,19 +115,19 @@ async function chatGPT_API_Completions(text) {
           break;
         }
       }
-    } catch (error) {
-      typeSentence(
-        "ERROR:" + error + " - " + response.body,
-        responseElem,
-        dataDone
-      );
-    }
+    } catch (error) {}
 
     if (!response.ok) {
+      let errorJSON = JSON.parse(errorResponse);
+
       console.error(
         "HTTP ERROR: " + response.status + "\n" + response.statusText
       );
-      typeSentence("HTTP ERROR: " + response.status, responseElem);
+
+      typeSentence(
+        "Status: " + response.status + "\n" + errorJSON.error.message,
+        responseElem
+      );
     }
   } else {
     await typeSentence("未能構建 userText", responseElem);

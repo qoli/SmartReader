@@ -1,6 +1,29 @@
-#ReadabilityFrame {
-  z-index: 90003;
+#ReadabilityBox {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
 
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
+  position: fixed;
+  max-width: 360px;
+  width: 80vw;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 14px;
+
+  gap: 0px;
+  column-gap: 0px;
+
+  animation: slideIn 0.8s;
+}
+
+.ReadabilityStyle {
+  padding: 8px;
+  border-radius: 16px;
   background: linear-gradient(
     180deg,
     rgba(244, 245, 244, 0.98) 0%,
@@ -9,33 +32,10 @@
   box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.25);
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
-
-  padding: 16px;
-
-  left: 0;
-
-  display: none;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 16px;
-  gap: 10px;
-
-  border-radius: 16px;
-
-  position: fixed;
-
-  max-width: 360px;
-  width: 80vw;
-
-  left: 50%;
-  transform: translateX(-50%);
-
-  bottom: 24px;
-
-  animation: slideIn 0.8s;
+  margin-bottom: 10px;
 }
 
-#ReadabilityFrame hr {
+#ReadabilityBox hr {
   background: none;
   color: none;
   border: none;
@@ -134,7 +134,6 @@
   order: 0;
   flex-grow: 0;
   margin: 0 auto;
-  margin-top: 8px;
 }
 
 #receipt h1,
@@ -262,6 +261,6 @@
   }
   100% {
     opacity: 1;
-    bottom: 24px;
+    bottom: 14px;
   }
 }
