@@ -66,7 +66,7 @@
   z-index: 90000;
 
   position: relative;
-  max-width: 400px;
+  max-width: 460px;
   width: 100vw;
   bottom: 0px;
 
@@ -77,7 +77,7 @@
   flex-direction: column-reverse;
 
   padding: 32px;
-  max-height: calc(100vh + 32px);
+  max-height: calc(100vh - 32px);
 
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -127,9 +127,13 @@
 
   font-size: 13px;
   line-height: 24px;
-  display: block;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 
   animation: fadeIn 0.8s;
+
+  white-space: pre-line;
 }
 
 .morePadding {
@@ -138,6 +142,8 @@
 
 .readabilityUserReply {
   text-align: right !important;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 #ReadabilityBox hr {
@@ -208,7 +214,7 @@
 
   font-size: 14px;
   line-height: 26px;
-  display: inline-block;
+  display: flex;
 }
 
 #receiptTitle {
@@ -221,6 +227,7 @@
   margin: 0 !important;
   padding: 0 !important;
   display: block !important;
+  word-wrap: break-word;
 }
 
 .safariExtensionTitle,
