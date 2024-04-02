@@ -58,29 +58,9 @@ function insertHtml() {
 </div>
 <!-- ReadabilityBar / End  -->
 
+<div id="ReadabilityBoxFrame">
+<div class="readabilityBlurBox"></div>
 <div id="ReadabilityBox" class="ReadabilityFont" >
-<div id="ReadabilityUserinfo" class="ReadabilityStyle morePadding">
-<div class="safariExtensionUserInfo">
-    <p class="safariExtensionTitle" id="ReadabilityTitle">Title</p>
-    <p class="safariExtensionHost readabilityTips" id="ReadabilityHost">
-        www
-    </p>
-</div>
-</div>
-<!-- ReadabilityUserinfo / End  -->
-
-<div id="ReadabilityMessageGroup">
-<div id="ReadabilityFrame" class="ReadabilityStyle morePadding">
-    <div id="ReadabilityLoading">
-        <img src="${lottieURL}" height="48" width="48" alt="loading" />
-        <span>Eison · 愛省流君</span>
-    </div>
-    <div id="response" class="typing"></div>
-    <div id="receiptTitle"></div>
-    <div id="receipt"></div>
-</div>
-</div>
-<!-- ReadabilityMessageGroup / End  -->
 
 <div id="ReadabilityKeyboard" class="ReadabilityStyle readabilityInput">
 <textarea id="ReadabilityTextarea" placeholder="Reply(Enter for Send)" rows="1" cols="1"
@@ -103,8 +83,35 @@ function insertHtml() {
 </div>
 </div>
 <!-- ReadabilityKeyboard / End  -->
+
+<div id="ReadabilityMessageGroup">
+<div id="ReadabilityFrame" class="ReadabilityStyle morePadding">
+    <div id="ReadabilityLoading">
+        <img src="${lottieURL}" height="48" width="48" alt="loading" />
+        <span>Eison · 愛省流君</span>
+    </div>
+    <div id="response" class="typing"></div>
+    <div id="receiptTitle"></div>
+    <div id="receipt"></div>
+</div>
+</div>
+<!-- ReadabilityMessageGroup / End  -->
+
+<div id="ReadabilityUserinfo" class="ReadabilityStyle morePadding">
+<div class="safariExtensionUserInfo">
+    <p class="safariExtensionTitle" id="ReadabilityTitle">Title</p>
+    <p class="safariExtensionHost readabilityTips" id="ReadabilityHost">
+        www
+    </p>
+</div>
+</div>
+<!-- ReadabilityUserinfo / End  -->
+
+<div id="ReadabilityAnchor"></div>
+
 </div>
 <!-- ReadabilityBox / End  -->
+</div>
 `;
 
   document.body.insertAdjacentHTML("beforeend", htmlSourceCode);
@@ -130,6 +137,13 @@ function insertHtml() {
       showClose();
     }
   });
+
+  textArea.addEventListener("keydown", function (event) {
+    if (event.keyCode === 13 && !event.shiftKey) {
+      event.preventDefault(); // 防止換行
+      sendReply();
+    }
+  });
 }
 
 function insertMessage(message, userReply) {
@@ -149,14 +163,19 @@ function insertMessage(message, userReply) {
 
   newDiv.innerText = message;
 
-  // 将新的 div 插入到 #ReadabilityMessageGroup 的末尾
   parentDiv.appendChild(newDiv);
 
   document.getElementById("ReadabilityTextarea").value = "";
+  showClose();
 }
 
 function sendReply() {
   let textValue = document.getElementById("ReadabilityTextarea").value;
+
+  if (textValue.length <= 0) {
+    return;
+  }
+
   insertMessage(textValue, true);
   setTimeout(() => {
     insertMessage("...", false);
@@ -175,12 +194,12 @@ function hideClose() {
 }
 
 function hideView() {
-  document.querySelector("#ReadabilityBox").style.display = "none";
-  document.querySelector("#ReadabilityBar").style.display = "block";
+  document.querySelector("#ReadabilityBoxFrame").style.display = "none";
+  document.querySelector("#ReadabilityBar").style.display = "flex";
 }
 
 function runSummary() {
-  document.querySelector("#ReadabilityBox").style.display = "block";
+  document.querySelector("#ReadabilityBoxFrame").style.display = "flex";
   document.querySelector("#ReadabilityBar").style.display = "none";
   callGPT();
 }

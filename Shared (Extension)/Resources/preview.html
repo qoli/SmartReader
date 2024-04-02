@@ -9,7 +9,7 @@
     <script src="Readability.js"></script>
 
     <link rel="stylesheet" type="text/css" href="preview-index.css" />
-    <link rel="stylesheet" type="text/css" href="readability.css?1" />
+    <link rel="stylesheet" type="text/css" href="readability.css" />
 </head>
 
 <body>
@@ -33,67 +33,78 @@
     </div>
     <!-- ReadabilityBar / End  -->
 
-    <div id="ReadabilityBox" class="ReadabilityFont" style="display: block">
-        <div id="ReadabilityUserinfo" class="ReadabilityStyle morePadding">
-            <div class="safariExtensionUserInfo">
-                <p class="safariExtensionTitle" id="ReadabilityTitle">Title</p>
-                <p class="safariExtensionHost readabilityTips" id="ReadabilityHost">
-                    www
-                </p>
-            </div>
-        </div>
-        <!-- ReadabilityUserinfo / End  -->
+    <div id="ReadabilityBoxFrame">
 
-        <div id="ReadabilityMessageGroup">
-            <div id="ReadabilityFrame" class="ReadabilityStyle morePadding">
-                <div id="ReadabilityLoading">
-                    <img src="${lottieURL}" height="48" width="48" alt="loading" />
-                    <span>Eison · 愛省流君</span>
+        <div class="readabilityBlurBox"></div>
+
+        <div id="ReadabilityBox" class="ReadabilityFont" style="display: block">
+            <div id="ReadabilityUserinfo" class="ReadabilityStyle morePadding">
+                <div class="safariExtensionUserInfo">
+                    <p class="safariExtensionTitle" id="ReadabilityTitle">Title</p>
+                    <p class="safariExtensionHost readabilityTips" id="ReadabilityHost">
+                        www
+                    </p>
                 </div>
-                <div id="response" class="typing"></div>
-                <div id="receiptTitle"></div>
-                <div id="receipt"></div>
             </div>
+            <!-- ReadabilityUserinfo / End  -->
 
-            <div id="ReplyMessage1111" class="ReadabilityStyle morePadding readabilityReply readabilityUserReply">
-                什麼是input
-                呢？
+            <div id="ReadabilityMessageGroup">
+                <div id="ReadabilityFrame" class="ReadabilityStyle morePadding">
+                    <div id="ReadabilityLoading">
+                        <img src="${lottieURL}" height="48" width="48" alt="loading" />
+                        <span>Eison · 愛省流君</span>
+                    </div>
+                    <div id="response" class="typing"></div>
+                    <div id="receiptTitle"></div>
+                    <div id="receipt"></div>
+                </div>
+
+                <div id="ReplyMessage1111" class="ReadabilityStyle morePadding readabilityReply readabilityUserReply">
+                    什麼是input 呢？
+                </div>
+
+                <div id="ReplyMessage1111" class="ReadabilityStyle morePadding readabilityReply">
+                    什麼是input 呢？``input`input``input` 是`input` 是一`input`
+                    是一種`input` 是一種事件`input` 是一種事件，`input`
+                    是一種事件，當`input` 是一種事件，當 `&lt;`input` 是一種事件，當
+                    `&lt;input`input` 是一種事件，當 `&lt;input&gt;``input` 是一種事件，當
+                    `&lt;input&gt;`、`input` 是一種事件，當 `&lt;input&gt;`、``input`
+                    是一種事件，當 `&lt;input&gt;`、`&lt;`input` 是一種事件，當
+                    `&lt;input&gt;`、`&lt;textarea`input` 是一種事件，當
+                    `&lt;input&gt;`、`&lt;textarea&gt;``input` 是一種事件，當
+                    `&lt;input&gt;`、`&lt;textarea&gt;` 或`input` 是一種事件，當
+                    `&lt;input&gt;`、`&lt;textarea&gt;` 或者
+                </div>
             </div>
+            <!-- ReadabilityMessageGroup / End  -->
 
-            <div id="ReplyMessage1111" class="ReadabilityStyle morePadding readabilityReply">什麼是input
-                呢？``input`input``input` 是`input` 是一`input` 是一種`input` 是一種事件`input` 是一種事件，`input` 是一種事件，當`input` 是一種事件，當
-                `&lt;`input` 是一種事件，當 `&lt;input`input` 是一種事件，當 `&lt;input&gt;``input` 是一種事件，當 `&lt;input&gt;`、`input`
-                是一種事件，當 `&lt;input&gt;`、``input` 是一種事件，當 `&lt;input&gt;`、`&lt;`input` 是一種事件，當
-                `&lt;input&gt;`、`&lt;textarea`input` 是一種事件，當 `&lt;input&gt;`、`&lt;textarea&gt;``input` 是一種事件，當
-                `&lt;input&gt;`、`&lt;textarea&gt;` 或`input` 是一種事件，當 `&lt;input&gt;`、`&lt;textarea&gt;` 或者
+            <div id="ReadabilityKeyboard" class="ReadabilityStyle readabilityInput">
+                <textarea id="ReadabilityTextarea" placeholder="Reply(Enter for Send)" rows="1" cols="1"
+                    class="readabilityInsideStyle"></textarea>
+                <div id="ReadabilityClose" class="readabilityInsideStyle">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4L4 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" style="--noir-inline-color: #959eae" data-noir-inline-color="">
+                        </path>
+                        <path d="M4 4L12 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" style="--noir-inline-color: #959eae" data-noir-inline-color="">
+                        </path>
+                    </svg>
+                </div>
+
+                <div id="ReadabilitySend" class="readabilityInsideStyle" style="display: none">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 14 21 3"></path>
+                        <path d="m21 3-6.5 18a.55.55 0 0 1-1 0L10 14l-7-3.5a.55.55 0 0 1 0-1L21 3Z"></path>
+                    </svg>
+                </div>
             </div>
-
+            <!-- ReadabilityKeyboard / End  -->
+            <div id="ReadabilityAnchor"></div>
         </div>
-        <!-- ReadabilityMessageGroup / End  -->
-
-        <div id="ReadabilityKeyboard" class="ReadabilityStyle readabilityInput">
-            <textarea id="ReadabilityTextarea" placeholder="Reply(Enter for Send)" rows="1" cols="1"
-                class="readabilityInsideStyle"></textarea>
-            <div id="ReadabilityClose" class="readabilityInsideStyle">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 4L4 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" style="--noir-inline-color: #959eae" data-noir-inline-color=""></path>
-                    <path d="M4 4L12 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" style="--noir-inline-color: #959eae" data-noir-inline-color=""></path>
-                </svg>
-            </div>
-
-            <div id="ReadabilitySend" class="readabilityInsideStyle" style="display: none">
-                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-linecap="round"
-                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 14 21 3"></path>
-                    <path d="m21 3-6.5 18a.55.55 0 0 1-1 0L10 14l-7-3.5a.55.55 0 0 1 0-1L21 3Z"></path>
-                </svg>
-            </div>
-        </div>
-        <!-- ReadabilityKeyboard / End  -->
+        <!-- ReadabilityBox / End  -->
     </div>
-    <!-- ReadabilityBox / End  -->
 
     <script>
         function hideView() {
@@ -139,7 +150,7 @@
             // 创建新的 div 元素
             var newDiv = document.createElement("div");
             var timestamp = Date.now(); // 获取当前时间戳
-            newDiv.id = 'ReplyMessage' + timestamp;
+            newDiv.id = "ReplyMessage" + timestamp;
             newDiv.className = "ReadabilityStyle morePadding readabilityReply";
             newDiv.innerText = message;
 

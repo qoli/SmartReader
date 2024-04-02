@@ -1,26 +1,79 @@
-#ReadabilityBox {
+@charset "UTF-8";
+
+#ReadabilityBoxFrame {
   z-index: 90000;
 
-  display: none;
-  flex-direction: column;
-  align-items: flex-start;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-
   position: fixed;
-  max-width: 360px;
-  width: 80vw;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 14px;
+  bottom: 0;
 
-  gap: 0px;
-  column-gap: 0px;
+  display: none;
+
+  height: 100vh;
 
   animation: slideIn 0.8s;
+}
+
+.readabilityBlurBox {
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1)
+  );
+  mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1)
+  );
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 90001;
+}
+
+#ReadabilityBox * {
+  overflow-anchor: none;
+}
+
+#ReadabilityBox {
+  transform: translateZ(0);
+
+  z-index: 90000;
+
+  position: relative;
+  max-width: 400px;
+  width: 110vw;
+  bottom: 0px;
+
+  margin-top: auto;
+  margin-bottom: -36px;
+
+  padding: 32px;
+
+  display: flex;
+  flex-direction: column-reverse;
+
+  max-height: calc(100vh + 32px);
+
+  scroll-behavior: smooth;
+  overflow-x: scroll;
+}
+
+#ReadabilityAnchor {
+  overflow-anchor: auto;
+  height: 1px;
+}
+
+#ReadabilityBox::-webkit-scrollbar {
+  width: 0.1rem; /* 设置滚动条宽度为 0.1rem */
+  background-color: transparent; /* 设置滚动条背景颜色为透明 */
 }
 
 .ReadabilityFont {
@@ -43,6 +96,12 @@
   margin-bottom: 10px;
 
   gap: 8px;
+
+  width: 100%;
+}
+
+.readabilityDone {
+  animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both !important;
 }
 
 .readabilityReply {
@@ -76,6 +135,10 @@
   display: block !important;
 }
 
+#ReadabilityKeyboard {
+  color: #000 !important;
+}
+
 #ReadabilityKeyboard textarea {
   border: none !important;
   width: 100% !important;
@@ -85,6 +148,7 @@
   max-height: 100px !important;
   display: inline-block !important;
   font-size: 12px !important;
+  color: #000 !important;
 }
 
 .readabilityInput {
@@ -138,12 +202,7 @@
 #ReadabilityBox p {
   margin: 0 !important;
   padding: 0 !important;
-  display: inline-block !important;
-}
-
-.safariExtensionUserInfo p {
-  margin: 0;
-  padding: 0;
+  display: block !important;
 }
 
 .safariExtensionTitle,
@@ -304,6 +363,30 @@
   }
   100% {
     opacity: 1;
-    bottom: 14px;
+    bottom: 0px;
+  }
+}
+
+@keyframes shake-horizontal {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    transform: translateX(-8px);
+  }
+  20%,
+  40%,
+  60% {
+    transform: translateX(8px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+  90% {
+    transform: translateX(-5px);
   }
 }

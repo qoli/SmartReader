@@ -48,6 +48,7 @@ function pushUserMessage(text) {
   messagesGroup.push(messageStyle);
 }
 
+// GPT 總結
 async function callGPTSummary(text) {
   //Cache DOM elements to avoid unnecessary DOM traversals
 
@@ -112,10 +113,20 @@ async function callGPTSummary(text) {
       hideID("response");
       hideLoading();
       setupSummary();
+
+      uiFocus(document.getElementById("ReadabilityFrame"));
     });
   } else {
     typeSentence("未能構建 userText", responseElem);
   }
+}
+
+function uiFocus(responseElem) {
+  console.log("uiFocus");
+  responseElem.classList.add("readabilityDone");
+  setTimeout(() => {
+    responseElem.classList.remove("readabilityDone");
+  }, 1600);
 }
 
 async function apiPostMessage(responseElem, callback) {
