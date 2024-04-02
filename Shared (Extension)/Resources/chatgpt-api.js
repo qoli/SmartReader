@@ -115,6 +115,8 @@ async function callGPTSummary(text) {
       setupSummary();
 
       uiFocus(document.getElementById("ReadabilityFrame"));
+
+      vibratePhone(200);
     });
   } else {
     typeSentence("未能構建 userText", responseElem);
@@ -280,4 +282,10 @@ function hideID(idName) {
 
 function showID(idName) {
   document.querySelector("#" + idName).style.display = "block";
+}
+
+function vibratePhone(duration) {
+  if ("vibrate" in navigator) {
+    navigator.vibrate(duration);
+  }
 }

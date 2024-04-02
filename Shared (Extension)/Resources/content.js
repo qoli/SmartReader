@@ -242,3 +242,11 @@ function postProcessText(text) {
     .replaceAll("\n\n", "")
     .replaceAll(",,", "");
 }
+
+function vibratePhone(duration) {
+  if ("vibrate" in navigator) {
+    navigator.vibrate(duration);
+  } else {
+    console.log("该浏览器不支持震动功能");
+  }
+}
