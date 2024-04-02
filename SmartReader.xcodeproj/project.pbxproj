@@ -220,18 +220,18 @@
 			isa = PBXGroup;
 			children = (
 				EACC21382BABE88D00D85D47 /* _locales */,
-				EACC21392BABE88D00D85D47 /* images */,
-				EACC213A2BABE88D00D85D47 /* manifest.json */,
 				EACC213B2BABE88D00D85D47 /* background.js */,
-				EA26F9B52BBABD2300FFCD76 /* loadingBase64.js */,
-				EACC213C2BABE88D00D85D47 /* content.js */,
 				EA2E1CA82BB85DDC00ABEF69 /* chatgpt-api.js */,
+				EACC213C2BABE88D00D85D47 /* content.js */,
+				EACC21392BABE88D00D85D47 /* images */,
+				EA26F9B52BBABD2300FFCD76 /* loadingBase64.js */,
+				EACC213A2BABE88D00D85D47 /* manifest.json */,
 				EA2E1CAB2BB8722000ABEF69 /* marked.min.js */,
-				EA2E1CA02BB80CA900ABEF69 /* Readability.js */,
-				EA2E1CA52BB81D8D00ABEF69 /* readability.css */,
-				EACC213D2BABE88D00D85D47 /* popup.html */,
 				EACC213E2BABE88D00D85D47 /* popup.css */,
+				EACC213D2BABE88D00D85D47 /* popup.html */,
 				EACC213F2BABE88D00D85D47 /* popup.js */,
+				EA2E1CA52BB81D8D00ABEF69 /* readability.css */,
+				EA2E1CA02BB80CA900ABEF69 /* Readability.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
