@@ -62,7 +62,8 @@ function insertHtml() {
 <div class="readabilityBlurBox"></div>
 <div id="ReadabilityBox" class="ReadabilityFont" >
 
-<div id="ReadabilityKeyboard" class="ReadabilityStyle readabilityInput">
+<div id="ReadabilityKeyboard" class="ReadabilityStyle morePadding">
+<div class="readabilityInput fixMorePadding">
 <textarea id="ReadabilityTextarea" placeholder="Reply(Enter for Send)" rows="1" cols="1"
     class="readabilityInsideStyle"></textarea>
 <div id="ReadabilityClose" class="readabilityInsideStyle">
@@ -80,6 +81,7 @@ function insertHtml() {
         <path d="M10 14 21 3"></path>
         <path d="m21 3-6.5 18a.55.55 0 0 1-1 0L10 14l-7-3.5a.55.55 0 0 1 0-1L21 3Z"></path>
     </svg>
+</div>
 </div>
 </div>
 <!-- ReadabilityKeyboard / End  -->
@@ -184,13 +186,13 @@ function sendReply() {
 }
 
 function showClose() {
-  document.querySelector("#ReadabilityClose").style.display = "block";
+  document.querySelector("#ReadabilityClose").style.display = "flex";
   document.querySelector("#ReadabilitySend").style.display = "none";
 }
 
 function hideClose() {
   document.querySelector("#ReadabilityClose").style.display = "none";
-  document.querySelector("#ReadabilitySend").style.display = "block";
+  document.querySelector("#ReadabilitySend").style.display = "flex";
 }
 
 function hideView() {

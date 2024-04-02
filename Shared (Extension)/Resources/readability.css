@@ -43,27 +43,31 @@
 }
 
 #ReadabilityBox {
-  transform: translateZ(0);
-
   z-index: 90000;
 
   position: relative;
   max-width: 400px;
-  width: 110vw;
+  width: 100vw;
   bottom: 0px;
 
   margin-top: auto;
   margin-bottom: -36px;
 
-  padding: 32px;
-
   display: flex;
   flex-direction: column-reverse;
 
+  padding: 32px;
   max-height: calc(100vh + 32px);
 
   scroll-behavior: smooth;
-  overflow-x: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+@media only screen and (max-width: 767px) {
+  .readabilityBlurBox {
+    height: 160px;
+  }
 }
 
 #ReadabilityAnchor {
@@ -135,6 +139,18 @@
   display: block !important;
 }
 
+.readabilityInput {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+
+  gap: 8px;
+}
+
+.fixMorePadding {
+  margin: -8px;
+}
+
 #ReadabilityKeyboard {
   color: #000 !important;
 }
@@ -147,30 +163,19 @@
   min-height: 1em !important;
   max-height: 100px !important;
   display: inline-block !important;
-  font-size: 12px !important;
+  font-size: 16px !important;
   color: #000 !important;
-}
-
-.readabilityInput {
-  display: flex;
-  justify-content: left;
-  align-items: left;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 0 auto;
-
-  font-size: 12px;
+  font-weight: 200 !important;
 }
 
 .readabilityInsideStyle {
   background: #ebebeb !important;
   border-radius: 8px !important;
   padding: 12px !important;
-  padding-bottom: 8px !important;
   box-shadow: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .readabilityTips {
@@ -390,3 +395,5 @@
     transform: translateX(-5px);
   }
 }
+
+/* @media */
