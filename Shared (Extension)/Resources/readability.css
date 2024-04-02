@@ -1,4 +1,6 @@
 #ReadabilityBox {
+  z-index: 90000;
+
   display: none;
   flex-direction: column;
   align-items: flex-start;
@@ -21,9 +23,15 @@
   animation: slideIn 0.8s;
 }
 
+.ReadabilityFont {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Symbol", "Segoe UI Emoji",
+    "Noto Color Emoji", sans-serif !important;
+}
+
 .ReadabilityStyle {
   padding: 8px;
-  border-radius: 16px;
+  border-radius: 12px;
   background: linear-gradient(
     180deg,
     rgba(244, 245, 244, 0.98) 0%,
@@ -33,6 +41,28 @@
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   margin-bottom: 10px;
+
+  gap: 8px;
+}
+
+.readabilityReply {
+  font-style: normal;
+  text-align: left;
+  color: #444;
+
+  font-size: 13px;
+  line-height: 24px;
+  display: block;
+
+  animation: fadeIn 0.8s;
+}
+
+.morePadding {
+  padding: 16px !important;
+}
+
+.readabilityUserReply {
+  text-align: right !important;
 }
 
 #ReadabilityBox hr {
@@ -46,12 +76,47 @@
   display: block !important;
 }
 
+#ReadabilityKeyboard textarea {
+  border: none !important;
+  width: 100% !important;
+  resize: none !important;
+  overflow: hidden !important;
+  min-height: 1em !important;
+  max-height: 100px !important;
+  display: inline-block !important;
+  font-size: 12px !important;
+}
+
+.readabilityInput {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0 auto;
+
+  font-size: 12px;
+}
+
+.readabilityInsideStyle {
+  background: #ebebeb !important;
+  border-radius: 8px !important;
+  padding: 12px !important;
+  padding-bottom: 8px !important;
+  box-shadow: none !important;
+}
+
+.readabilityTips {
+  color: #4b4b4b !important;
+  opacity: 0.7 !important;
+}
+
 #response,
 #receipt,
 #receiptTitle {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Symbol", "Segoe UI Emoji",
-    "Noto Color Emoji", sans-serif !important;
   font-style: normal;
   text-align: left;
   color: #444;
@@ -61,6 +126,7 @@
 
   font-size: 14px;
   line-height: 26px;
+  display: inline-block;
 }
 
 #receiptTitle {
@@ -69,11 +135,10 @@
   margin-bottom: 1em;
 }
 
-#response p,
-#receipt p {
-  margin: 0;
-  padding: 0;
-  display: inline-block;
+#ReadabilityBox p {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline-block !important;
 }
 
 .safariExtensionUserInfo p {
@@ -83,13 +148,10 @@
 
 .safariExtensionTitle,
 .safariExtensionHost {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Symbol", "Segoe UI Emoji",
-    "Noto Color Emoji", sans-serif !important;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 18px;
   text-align: left;
   font-weight: 700;
   color: #000000;
@@ -97,7 +159,6 @@
 
 .safariExtensionHost {
   font-weight: 400;
-  color: #4b4b4b;
 }
 
 #ReadabilityLoading {
@@ -112,28 +173,6 @@
   padding-top: 6px;
   font-size: 10px;
   color: #000;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Symbol", "Segoe UI Emoji",
-    "Noto Color Emoji", sans-serif !important;
-}
-
-#ReadabilityClose {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  width: 64px;
-  height: 40px;
-
-  background: #f2f2f2;
-  border-radius: 99px;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 0 auto;
 }
 
 #receipt h1,
@@ -168,6 +207,8 @@
   padding-inline: 0;
 }
 
+/* ReadabilityBar */
+
 #ReadabilityBar {
   display: block;
   z-index: 90002;
@@ -176,7 +217,7 @@
 
 #ReadabilityBar #viewBar {
   background: rgba(244, 245, 244, 0.85);
-  box-shadow: 0px 18px 24px rgba(0, 0, 0, 0.65);
+  box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.25);
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   border-radius: 99px;
@@ -193,7 +234,7 @@
   width: 54px !important;
   height: 54px !important;
   left: 16px;
-  bottom: 24px;
+  bottom: 14px;
 }
 
 #ReadabilityBar #viewBar a {
@@ -210,6 +251,8 @@
   line-height: 1px;
   border: none;
 }
+
+/* animation */
 
 .fadeIn {
   animation: fadeIn 0.8s;

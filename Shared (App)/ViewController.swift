@@ -59,6 +59,11 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
         #endif
     }
 
+    func setupAppGroup() {
+        let suiteKeyStore = UserDefaults(suiteName: "group.thisisatest")
+        suiteKeyStore?.set(true, forKey: "user_defaults_suite_enabled")
+    }
+
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         print(message.body)
 

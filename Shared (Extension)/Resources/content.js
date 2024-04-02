@@ -39,51 +39,73 @@ function insertHtml() {
 
   var htmlSourceCode = `
 <div id="ReadabilityBar">
-<div id="viewBar" class="shine">
+<div id="viewBar">
     <a href="javascript:void(0)" id="ReadabilityButton">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24.5333 7.46667L23.6 8.4M4 16H5.33333M16 4V5.33333M26.6667 16H28M7.46667 7.46667L8.4 8.4"
-                stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <svg width="32" height="30" viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
-                d="M12 21.3333C10.8806 20.4938 10.0538 19.3233 9.63656 17.9878C9.21935 16.6522 9.23295 15.2192 9.67542 13.8918C10.1179 12.5644 10.9668 11.4098 12.1019 10.5917C13.237 9.77356 14.6008 9.33331 16 9.33331C17.3992 9.33331 18.7629 9.77356 19.898 10.5917C21.0332 11.4098 21.8821 12.5644 22.3245 13.8918C22.767 15.2192 22.7806 16.6522 22.3634 17.9878C21.9462 19.3233 21.1194 20.4938 20 21.3333C19.4794 21.8486 19.0874 22.4792 18.8558 23.1741C18.6242 23.869 18.5594 24.6087 18.6666 25.3333C18.6666 26.0406 18.3857 26.7188 17.8856 27.2189C17.3855 27.719 16.7072 28 16 28C15.2927 28 14.6145 27.719 14.1144 27.2189C13.6143 26.7188 13.3333 26.0406 13.3333 25.3333C13.4407 24.6087 13.3759 23.869 13.1443 23.1741C12.9127 22.4792 12.5206 21.8486 12 21.3333Z"
-                stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M12.9333 22.6667H19.0667" stroke="black" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
+                d="M0 11.4445C0 5.55346 4.77563 0.777832 10.6667 0.777832H17.7778C23.6688 0.777832 28.4444 5.55346 28.4444 11.4445V18.5556C28.4444 24.4467 23.6688 29.2223 17.7778 29.2223H2.66666C1.19391 29.2223 0 28.0284 0 26.5556V11.4445Z"
+                fill="#FFD86D" />
+            <circle cx="14.2222" cy="12.3333" r="4.44444" stroke="black" stroke-width="1.77778" />
+            <circle cx="26.6667" cy="12.3333" r="4.44444" stroke="black" stroke-width="1.77778" />
+            <path d="M15.1111 11.8889V13.6667" stroke="black" stroke-width="1.77778" stroke-linecap="round" />
+            <path d="M21.5556 11.4443H19.5556" stroke="black" stroke-width="1.77778" stroke-linecap="round" />
+            <path d="M25.7778 11.8889V13.6667" stroke="black" stroke-width="1.77778" stroke-linecap="round" />
+            <path d="M16.8889 21.512V21.512C19.4382 21.9829 22.0719 21.567 24.352 20.3334V20.3334"
+                stroke="black" stroke-width="1.77778" stroke-linecap="round" />
         </svg>
     </a>
 </div>
 </div>
+<!-- ReadabilityBar / End  -->
 
-<div id="ReadabilityBox">
-<div id="ReadabilityFrame" class="ReadabilityStyle">
-    <div class="safariExtensionUserInfo">
-        <p class="safariExtensionTitle" id="ReadabilityTitle">
-            Eison · 愛省流君
-        </p>
-        <p class="safariExtensionHost" id="ReadabilityHost">www.bbc.com</p>
-    </div>
-    <hr />
+<div id="ReadabilityBox" class="ReadabilityFont" >
+<div id="ReadabilityUserinfo" class="ReadabilityStyle morePadding">
+<div class="safariExtensionUserInfo">
+    <p class="safariExtensionTitle" id="ReadabilityTitle">Title</p>
+    <p class="safariExtensionHost readabilityTips" id="ReadabilityHost">
+        www
+    </p>
+</div>
+</div>
+<!-- ReadabilityUserinfo / End  -->
 
+<div id="ReadabilityMessageGroup">
+<div id="ReadabilityFrame" class="ReadabilityStyle morePadding">
     <div id="ReadabilityLoading">
-        <img src="${lottieURL}" height="48" width="48"
-            alt="loading" />
-        <span>...</span>
+        <img src="${lottieURL}" height="48" width="48" alt="loading" />
+        <span>Eison · 愛省流君</span>
     </div>
     <div id="response" class="typing"></div>
     <div id="receiptTitle"></div>
     <div id="receipt"></div>
 </div>
-<div class="ReadabilityStyle">
-    <div id="ReadabilityClose">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 4L4 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" style="--noir-inline-color: #959eae" data-noir-inline-color=""></path>
-            <path d="M4 4L12 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" style="--noir-inline-color: #959eae" data-noir-inline-color=""></path>
-        </svg>
-    </div>
 </div>
-</div>`;
+<!-- ReadabilityMessageGroup / End  -->
+
+<div id="ReadabilityKeyboard" class="ReadabilityStyle readabilityInput">
+<textarea id="ReadabilityTextarea" placeholder="Reply(Enter for Send)" rows="1" cols="1"
+    class="readabilityInsideStyle"></textarea>
+<div id="ReadabilityClose" class="readabilityInsideStyle">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 4L4 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" style="--noir-inline-color: #959eae" data-noir-inline-color=""></path>
+        <path d="M4 4L12 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" style="--noir-inline-color: #959eae" data-noir-inline-color=""></path>
+    </svg>
+</div>
+
+<div id="ReadabilitySend" class="readabilityInsideStyle" style="display: none">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-linecap="round"
+        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 14 21 3"></path>
+        <path d="m21 3-6.5 18a.55.55 0 0 1-1 0L10 14l-7-3.5a.55.55 0 0 1 0-1L21 3Z"></path>
+    </svg>
+</div>
+</div>
+<!-- ReadabilityKeyboard / End  -->
+</div>
+<!-- ReadabilityBox / End  -->
+`;
 
   document.body.insertAdjacentHTML("beforeend", htmlSourceCode);
 
@@ -94,6 +116,62 @@ function insertHtml() {
   document
     .querySelector("#ReadabilityClose")
     .addEventListener("click", hideView);
+
+  document
+    .querySelector("#ReadabilitySend")
+    .addEventListener("click", sendReply);
+
+  const textArea = document.getElementById("ReadabilityTextarea");
+  textArea.addEventListener("input", () => {
+    let ln = textArea.value.length;
+    if (ln != 0) {
+      hideClose();
+    } else {
+      showClose();
+    }
+  });
+}
+
+function insertMessage(message, userReply) {
+  var parentDiv = document.getElementById("ReadabilityMessageGroup");
+
+  // 创建新的 div 元素
+  var newDiv = document.createElement("div");
+  var timestamp = Date.now(); // 获取当前时间戳
+  newDiv.id = "ReplyMessage" + timestamp;
+
+  if (userReply) {
+    newDiv.className =
+      "ReadabilityStyle morePadding readabilityReply readabilityUserReply";
+  } else {
+    newDiv.className = "ReadabilityStyle morePadding readabilityReply";
+  }
+
+  newDiv.innerText = message;
+
+  // 将新的 div 插入到 #ReadabilityMessageGroup 的末尾
+  parentDiv.appendChild(newDiv);
+
+  document.getElementById("ReadabilityTextarea").value = "";
+}
+
+function sendReply() {
+  let textValue = document.getElementById("ReadabilityTextarea").value;
+  insertMessage(textValue, true);
+  setTimeout(() => {
+    insertMessage("...", false);
+    sendReplytext(textValue);
+  }, 500);
+}
+
+function showClose() {
+  document.querySelector("#ReadabilityClose").style.display = "block";
+  document.querySelector("#ReadabilitySend").style.display = "none";
+}
+
+function hideClose() {
+  document.querySelector("#ReadabilityClose").style.display = "none";
+  document.querySelector("#ReadabilitySend").style.display = "block";
 }
 
 function hideView() {
@@ -122,7 +200,8 @@ function callGPT() {
   document.querySelector("#receipt").innerHTML = "";
   document.querySelector("#ReadabilityTitle").innerHTML = article.title;
   document.querySelector("#ReadabilityHost").innerHTML = window.location.host;
-  chatGPT_API_Completions(coreText);
+
+  callGPTSummary(coreText);
 }
 
 function postProcessText(text) {

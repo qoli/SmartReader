@@ -1,21 +1,62 @@
 const API_KEY = "sk-MUmZpeZrINTZ6o4I6fD3B197615049E1Ae8e1a312aA11969";
 const API_URL = "https://www.gptapi.us/v1/chat/completions";
 
-const MIN_CHARS = 0;
-let userSpan, charSpan;
+let lastReplyMessage = "";
+let messagesGroup = [];
 
-let gptMessage = "";
+async function sendReplytext(text) {
+  pushUserMessage(text);
+  let elem = getMaxTimestampElem();
 
-async function chatGPT_API_Completions(text) {
+  await apiPostMessage(elem, function () {
+    markdownMessage(elem);
+  });
+}
+
+function getMaxTimestampElem() {
+  var elements = document.querySelectorAll('[id^="ReplyMessage"]');
+  var maxTimestamp = -Infinity;
+  var maxTimestampDiv = null;
+
+  Array.from(elements).forEach(function (element) {
+    var id = element.id;
+    var timestamp = parseInt(id.replace("ReplyMessage", ""));
+    if (timestamp > maxTimestamp) {
+      maxTimestamp = timestamp;
+      maxTimestampDiv = element;
+    }
+  });
+
+  return maxTimestampDiv;
+}
+
+function puashAssistantMessage(text) {
+  const messageStyle = {
+    role: "assistant",
+    content: text,
+  };
+
+  messagesGroup.push(messageStyle);
+}
+
+function pushUserMessage(text) {
+  const messageStyle = {
+    role: "user",
+    content: text,
+  };
+
+  messagesGroup.push(messageStyle);
+}
+
+async function callGPTSummary(text) {
   //Cache DOM elements to avoid unnecessary DOM traversals
 
   let responseElem = document.getElementById("response");
 
-  callLoading();
   responseElem.innerText = "";
-  gptMessage = "";
+  lastReplyMessage = "";
 
-  let systemText = "你是一個文章概括專家。請按照下面的要求概括文章內容。";
+  let systemText = "你是幫助用戶理解網頁內容的專家。";
   let assistantText = "";
   let promptText = `
 為最後提供的文字內容進行按要求的總結。如果是其他語言，請翻譯到繁體中文。
@@ -30,10 +71,13 @@ async function chatGPT_API_Completions(text) {
 下面為需要總結的文字內容：
 <`;
 
+  callLoading();
+  showID("response");
+
   let userText = promptText + text + ">";
 
   if (text) {
-    const messages = [];
+    // const messagesGroup = [];
 
     // add the system message
     const systemMessage = {
@@ -41,7 +85,7 @@ async function chatGPT_API_Completions(text) {
       content: systemText,
     };
     if (systemText.length > 0) {
-      messages.push(systemMessage);
+      messagesGroup.push(systemMessage);
     }
 
     // add the assistant message
@@ -50,7 +94,7 @@ async function chatGPT_API_Completions(text) {
       content: assistantText,
     };
     if (assistantText.length > 0) {
-      messages.push(assistantMessage);
+      messagesGroup.push(assistantMessage);
     }
 
     // add the user message
@@ -59,123 +103,116 @@ async function chatGPT_API_Completions(text) {
       content: userText,
     };
     if (userText.length > 0) {
-      messages.push(userMessage);
+      messagesGroup.push(userMessage);
     }
-
-    const response = await fetch(API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + API_KEY,
-      },
-      body: JSON.stringify({
-        stream: true,
-        model: "gpt-3.5-turbo",
-        messages: messages,
-        temperature: 0,
-      }),
-    });
-
-    const reader = response.body
-      ?.pipeThrough(new TextDecoderStream())
-      .getReader();
-
-    if (!reader) return;
 
     responseElem.innerText = "";
 
-    hideLoading();
-
-    let errorResponse;
-
-    try {
-      while (true) {
-        // eslint-disable-next-line no-await-in-loop
-        const { value, done } = await reader.read();
-        if (done) break;
-        let dataDone = false;
-        const arr = value.split("\n");
-
-        errorResponse = arr[0];
-
-        arr.forEach((data) => {
-          if (data.length === 0) return; // ignore empty message
-          if (data.startsWith(":")) return; // ignore sse comment message
-          if (data === "data: [DONE]") {
-            dataDone = true;
-            return;
-          }
-          const token = JSON.parse(data.substring(6)).choices[0].delta.content;
-
-          typeSentence(token, responseElem, false, true);
-        });
-        if (dataDone) {
-          console.log("#Loop", dataDone);
-          typeSentence("", responseElem, true, true);
-          break;
-        }
-      }
-    } catch (error) {}
-
-    if (!response.ok) {
-      let errorJSON = JSON.parse(errorResponse);
-
-      console.error(
-        "HTTP ERROR: " + response.status + "\n" + response.statusText
-      );
-
-      typeSentence(
-        "Status: " + response.status + "\n" + errorJSON.error.message,
-        responseElem
-      );
-    }
+    await apiPostMessage(responseElem, function () {
+      hideID("response");
+      hideLoading();
+      setupSummary();
+    });
   } else {
-    await typeSentence("未能構建 userText", responseElem);
+    typeSentence("未能構建 userText", responseElem);
   }
 }
 
-function removePeriod(json) {
-  json.forEach(function (element, index) {
-    if (element === ".") {
-      json.splice(index, 1);
-    }
+async function apiPostMessage(responseElem, callback) {
+  // reset lastMessage
+  lastReplyMessage = "";
+  // api post
+  const response = await fetch(API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + API_KEY,
+    },
+    body: JSON.stringify({
+      stream: true,
+      model: "gpt-3.5-turbo",
+      messages: messagesGroup,
+      temperature: 0,
+    }),
   });
-  return json;
+
+  const reader = response.body
+    ?.pipeThrough(new TextDecoderStream())
+    .getReader();
+
+  if (!reader) return;
+
+  let errorResponse;
+
+  try {
+    while (true) {
+      // eslint-disable-next-line no-await-in-loop
+      const { value, done } = await reader.read();
+      if (done) break;
+      let dataDone = false;
+      const arr = value.split("\n");
+
+      errorResponse = arr[0];
+
+      arr.forEach((data) => {
+        if (data.length === 0) return; // ignore empty message
+        if (data.startsWith(":")) return; // ignore sse comment message
+        if (data === "data: [DONE]") {
+          dataDone = true;
+          return;
+        }
+        const token = JSON.parse(data.substring(6)).choices[0].delta.content;
+
+        typeSentence(token, responseElem);
+      });
+      if (dataDone) {
+        console.log("#Loop", dataDone);
+        puashAssistantMessage(lastReplyMessage);
+
+        // 在适当的时候调用回调函数
+        if (callback && typeof callback === "function") {
+          callback();
+        }
+        break;
+      }
+    }
+  } catch (error) {}
+
+  if (!response.ok) {
+    let errorJSON = JSON.parse(errorResponse);
+
+    console.error(
+      "HTTP ERROR: " + response.status + "\n" + response.statusText
+    );
+
+    typeSentence(
+      "Status: " + response.status + "\n" + errorJSON.error.message,
+      responseElem
+    );
+  }
 }
 
-function createResponse(json) {
-  let response = "";
-  let choices = removePeriod(json.choices);
-  if (choices.length > 0) {
-    response = json.choices[0].message.content;
-  }
-
-  return response;
+function markdownMessage(elementReference) {
+  elementReference.innerHTML = marked.parse(postProcessText(lastReplyMessage));
 }
 
-async function typeSentence(
-  sentence,
-  elementReference,
-  data,
-  isReceipt = false
-) {
-  gptMessage += sentence;
-  elementReference.innerText += gptMessage;
-
-  // END ...
-  if (isReceipt) {
-    let resultText = document.getElementById("response").innerHTML;
-
-    document.getElementById("response").innerHTML = "";
-    document.getElementById("receiptTitle").innerHTML = removeBR(
-      extractSummary(resultText)
-    );
-    document.getElementById("receipt").innerHTML = formatMarkdown(
-      marked.parse(postProcessText(excludeSummary(resultText)))
-    );
-  }
+function typeSentence(sentence, elementReference) {
+  lastReplyMessage += sentence;
+  elementReference.innerText = lastReplyMessage;
 
   return;
+}
+
+function setupSummary() {
+  let resultText = document.getElementById("response").innerHTML;
+
+  document.getElementById("response").innerHTML = "";
+  document.getElementById("receiptTitle").innerHTML = removeBR(
+    extractSummary(resultText)
+  );
+  document.getElementById("receipt").innerHTML = formatMarkdown(
+    marked.parse(postProcessText(excludeSummary(resultText)))
+  );
 }
 
 function postProcessText(text) {
@@ -224,4 +261,12 @@ function hideLoading() {
   setTimeout(() => {
     document.querySelector("#ReadabilityLoading").style.display = "none";
   }, 800);
+}
+
+function hideID(idName) {
+  document.querySelector("#" + idName).style.display = "none";
+}
+
+function showID(idName) {
+  document.querySelector("#" + idName).style.display = "block";
 }

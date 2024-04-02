@@ -101,6 +101,8 @@
 
 /* Begin PBXFileReference section */
 		EA26F9B52BBABD2300FFCD76 /* loadingBase64.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = loadingBase64.js; sourceTree = "<group>"; };
+		EA26F9B82BBBDE7B00FFCD76 /* SmartReader (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SmartReader (iOS).entitlements"; sourceTree = "<group>"; };
+		EA26F9B92BBBDEA000FFCD76 /* SmartReader Extension (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SmartReader Extension (iOS).entitlements"; sourceTree = "<group>"; };
 		EA2E1CA02BB80CA900ABEF69 /* Readability.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Readability.js; sourceTree = "<group>"; };
 		EA2E1CA52BB81D8D00ABEF69 /* readability.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = readability.css; sourceTree = "<group>"; };
 		EA2E1CA82BB85DDC00ABEF69 /* chatgpt-api.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "chatgpt-api.js"; sourceTree = "<group>"; };
@@ -172,6 +174,8 @@
 		EACC21272BABE88C00D85D47 = {
 			isa = PBXGroup;
 			children = (
+				EA26F9B92BBBDEA000FFCD76 /* SmartReader Extension (iOS).entitlements */,
+				EA26F9B82BBBDE7B00FFCD76 /* SmartReader (iOS).entitlements */,
 				EACC212C2BABE88D00D85D47 /* Shared (App) */,
 				EACC21352BABE88D00D85D47 /* Shared (Extension) */,
 				EACC21462BABE88D00D85D47 /* iOS (App) */,
@@ -676,6 +680,7 @@
 		EACC21942BABE88E00D85D47 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "SmartReader Extension (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WQY45CL427;
@@ -707,6 +712,7 @@
 		EACC21952BABE88E00D85D47 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "SmartReader Extension (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WQY45CL427;
@@ -742,6 +748,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SmartReader (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WQY45CL427;
@@ -780,6 +787,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SmartReader (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WQY45CL427;
