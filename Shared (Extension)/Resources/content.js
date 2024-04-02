@@ -92,7 +92,7 @@ function insertHtml() {
 <div id="ReadabilityMessageGroup">
 <div id="ReadabilityFrame" class="ReadabilityStyle morePadding">
     <div id="ReadabilityLoading">
-        <img src="${lottieURL}" height="48" width="48" alt="loading" />
+        <img src="${lottieURL}" height="48" width="48" alt="loading" style="width: 48px; height: 48px;" />
         <span>Eison · 愛省流君</span>
     </div>
     <div id="response" class="typing"></div>
