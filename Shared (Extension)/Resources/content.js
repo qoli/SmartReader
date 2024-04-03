@@ -222,6 +222,12 @@ function callGPT() {
     return;
   }
 
+  console.log("messagesGroup", messagesGroup.length);
+
+  if (messagesGroup.length > 0) {
+    return;
+  }
+
   document.querySelector("#response").innerHTML = "";
   console.log("...isProbablyReaderable");
   let coreText = postProcessText(article.textContent);
