@@ -83,7 +83,7 @@ async function callGPTSummary(inputText) {
     console.log("Token,Too Long");
   }
 
-  if (0 < userText.length) {
+  if (userText.length <= 0) {
     typeSentence("userText Empty", responseElem);
     return;
   }
