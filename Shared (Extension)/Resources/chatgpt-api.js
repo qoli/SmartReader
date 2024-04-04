@@ -1,5 +1,7 @@
 const API_KEY = "sk-MUmZpeZrINTZ6o4I6fD3B197615049E1Ae8e1a312aA11969";
 const API_URL = "https://www.gptapi.us/v1/chat/completions";
+const API_MODEL = "gpt-3.5-turbo";
+const MAX_TOKEN = 8000;
 
 let lastReplyMessage = "";
 let messagesGroup = [];
@@ -49,12 +51,10 @@ function pushUserMessage(text) {
 }
 
 // GPT 總結
-async function callGPTSummary(text) {
+async function callGPTSummary(inputText) {
   //Cache DOM elements to avoid unnecessary DOM traversals
 
   let responseElem = document.getElementById("response");
-
-  responseElem.innerText = "";
   lastReplyMessage = "";
 
   let systemText = "你是幫助用戶理解網頁內容的專家。";
@@ -75,11 +75,20 @@ async function callGPTSummary(text) {
   callLoading();
   showID("response");
 
-  let userText = promptText + text + ">";
+  let userText = promptText + inputText + ">";
 
-  if (text) {
-    // const messagesGroup = [];
+  console.log("length", userText.length);
 
+  if (userText.length > MAX_TOKEN) {
+    console.log("Token,Too Long");
+  }
+
+  if (0 < userText.length) {
+    typeSentence("userText Empty", responseElem);
+    return;
+  }
+
+  if (inputText) {
     // add the system message
     const systemMessage = {
       role: "system",
@@ -103,11 +112,8 @@ async function callGPTSummary(text) {
       role: "user",
       content: userText,
     };
-    if (userText.length > 0) {
-      messagesGroup.push(userMessage);
-    }
 
-    responseElem.innerText = "";
+    messagesGroup.push(userMessage);
 
     await apiPostMessage(responseElem, function () {
       hideID("response");
@@ -115,8 +121,6 @@ async function callGPTSummary(text) {
       setupSummary();
 
       uiFocus(document.getElementById("ReadabilityFrame"));
-
-      vibratePhone(200);
     });
   } else {
     typeSentence("未能構建 userText", responseElem);
@@ -143,7 +147,7 @@ async function apiPostMessage(responseElem, callback) {
     },
     body: JSON.stringify({
       stream: true,
-      model: "gpt-3.5-turbo",
+      model: API_MODEL,
       messages: messagesGroup,
       temperature: 0,
     }),
@@ -264,13 +268,12 @@ function callLoading() {
   document.querySelector("#ReadabilityLoading").style.display = "flex";
   document.querySelector("#ReadabilityLoading").classList.remove("fadeOut");
   document.querySelector("#ReadabilityLoading").classList.add("fadeIn");
-  console.log("callLoading");
 }
 
 function hideLoading() {
   document.querySelector("#ReadabilityLoading").classList.remove("fadeIn");
   document.querySelector("#ReadabilityLoading").classList.add("fadeOut");
-  console.log("hideLoading");
+
   setTimeout(() => {
     document.querySelector("#ReadabilityLoading").style.display = "none";
   }, 800);
@@ -282,10 +285,4 @@ function hideID(idName) {
 
 function showID(idName) {
   document.querySelector("#" + idName).style.display = "block";
-}
-
-function vibratePhone(duration) {
-  if ("vibrate" in navigator) {
-    navigator.vibrate(duration);
-  }
 }
