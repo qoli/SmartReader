@@ -1,7 +1,7 @@
-const API_KEY = "sk-MUmZpeZrINTZ6o4I6fD3B197615049E1Ae8e1a312aA11969";
-// const API_URL = "https://www.gptapi.us/v1/chat/completions";
-const API_URL = "https://satyr-safe-heron.ngrok-free.app/v1/chat/completions";
-const API_MODEL = "gpt-3.5-turbo";
+let API_URL = "";
+let API_KEY = "";
+let API_MODEL = "";
+
 const MAX_TOKEN = 8000;
 
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -48,7 +48,14 @@ function getDebugText() {
 //
 
 function ready() {
-  insertHtml();
+  (async () => {
+    API_URL = await loadData("APIURL", "https://...");
+    API_KEY = await loadData("APIKEY", "sk-");
+    API_MODEL = await loadData("APIMODEL", "gpt-3.5-turbo");
+
+    insertHtml();
+    console.log("Eison-Config:", API_URL, API_KEY, API_MODEL);
+  })();
 }
 
 function insertHtml() {
@@ -269,4 +276,37 @@ function postProcessText(text) {
     .replaceAll("\t", "")
     .replaceAll("\n\n", "")
     .replaceAll(",,", "");
+}
+
+// 儲存資料
+async function saveData(key, data) {
+  try {
+    const obj = {};
+    obj[key] = data;
+    await browser.storage.local.set(obj);
+    console.log(key + " ... save");
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// 讀取資料
+async function loadData(key, defaultValue) {
+  try {
+    const result = await browser.storage.local.get(key);
+    const data = result[key];
+
+    if (data === undefined) {
+      if (defaultValue === undefined) {
+        return "";
+      } else {
+        return defaultValue;
+      }
+    }
+
+    return data;
+  } catch (error) {
+    console.log(error);
+    return "";
+  }
 }

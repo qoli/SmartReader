@@ -47,22 +47,23 @@
     <div class="buttonBar">
         <div>
             <span class="buttonTitle">API URL</span>
+            <span class="buttonDesc">CSP 政策導致必須使用 Https 地址</span>
         </div>
-        <input class="" id="APIURL" type="text" value="https://api.openai.com/v1/chat/completions" />
+        <input class="" id="APIURL" type="text" value="..." />
     </div>
 
     <div class="buttonBar">
         <div>
             <span class="buttonTitle">API Key</span>
         </div>
-        <input class="" id="APIKey" type="text" value="sk-xxxxxx" />
+        <input class="" id="APIKEY" type="text" value="sk-..." />
     </div>
 
     <div class="buttonBar">
         <div>
             <span class="buttonTitle">API 模型</span>
         </div>
-        <input class="" id="APIKey" type="text" value="gpt-3.5-turbo" />
+        <input class="" id="APIMODEL" type="text" value="gpt-3.5-turbo" />
     </div>
 
     <div class="buttonBar">
@@ -71,9 +72,7 @@
             <span class="buttonDesc">API 設定需要保存</span>
         </div>
         <div class="setFlex">
-            <button class="clickListen" data-function="saveAPIConfig">
-                檢查連線
-            </button>
+            <button class="clickListen" data-function="checkAPI">檢查連線</button>
             <button class="clickListen" data-function="saveAPIConfig">保存</button>
         </div>
     </div>
@@ -101,7 +100,6 @@
         <pre id="ReadabilityText">...</pre>
     </div>
 
-    <script src="shared.js"></script>
     <script src="popup.js"></script>
 </body>
 

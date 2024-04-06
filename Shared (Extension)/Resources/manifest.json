@@ -26,7 +26,6 @@
         "Readability.js",
         "chatgpt-api.js",
         "marked.min.js",
-        "shared.js",
         "content.js"
       ],
       "css": ["readability.css"],

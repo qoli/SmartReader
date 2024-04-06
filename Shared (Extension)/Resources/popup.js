@@ -54,17 +54,35 @@ function sendRunSummaryMessage() {
   sendMessageToContent("runSummary");
 }
 
-function saveCat() {
-  saveData("cat", "tom");
-}
-
-function getCat() {
-  loadData("cat");
-}
-
 function getHostFromUrl(url) {
   const parsedUrl = new URL(url);
   return parsedUrl.host;
+}
+
+function saveAPIConfig() {
+  (async () => {
+    let url = document.querySelector("#APIURL").value;
+    let key = document.querySelector("#APIKEY").value;
+    let model = document.querySelector("#APIMODEL").value;
+
+    await saveData("APIURL", url);
+    await saveData("APIKEY", key);
+    await saveData("APIMODEL", model);
+
+    document.querySelector(
+      "#ReadabilityText"
+    ).innerHTML = `${url} + ${key} + ${model} `;
+  })();
+}
+
+async function updateConfig() {
+  const API_URL = await loadData("APIURL", "https://...");
+  const API_KEY = await loadData("APIKEY", "sk-");
+  const API_MODEL = await loadData("APIMODEL", "gpt-3.5-turbo");
+
+  document.querySelector("#APIURL").value = API_URL;
+  document.querySelector("#APIKEY").value = API_KEY;
+  document.querySelector("#APIMODEL").value = API_MODEL;
 }
 
 function mainApp() {
@@ -80,6 +98,8 @@ function mainApp() {
 // async ...
 function callByTimeOut() {
   (async () => {
+    await updateConfig();
+
     let currentTabs = await browser.tabs.query({ active: true });
 
     document.querySelector("#currentHOST").innerHTML = getHostFromUrl(
@@ -93,3 +113,36 @@ mainApp();
 setTimeout(() => {
   callByTimeOut();
 }, 800);
+
+// 儲存資料
+async function saveData(key, data) {
+  try {
+    const obj = {};
+    obj[key] = data;
+    await browser.storage.local.set(obj);
+    console.log(key + " ... save");
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// 讀取資料
+async function loadData(key, defaultValue) {
+  try {
+    const result = await browser.storage.local.get(key);
+    const data = result[key];
+
+    if (data === undefined) {
+      if (defaultValue === undefined) {
+        return "";
+      } else {
+        return defaultValue;
+      }
+    }
+
+    return data;
+  } catch (error) {
+    console.log(error);
+    return "";
+  }
+}

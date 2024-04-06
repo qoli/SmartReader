@@ -102,13 +102,17 @@ async function callGPTSummary(inputText) {
     puashAssistantMessage(assistantText);
     pushUserMessage(userText);
 
-    await apiPostMessage(responseElem, function () {
-      hideID("response");
-      hideLoading();
-      setupSummary();
+    try {
+      await apiPostMessage(responseElem, function () {
+        hideID("response");
+        hideLoading();
+        setupSummary();
 
-      uiFocus(document.getElementById("ReadabilityFrame"));
-    });
+        uiFocus(document.getElementById("ReadabilityFrame"));
+      });
+    } catch (error) {
+      typeSentence("API Error:" + error, responseElem);
+    }
   } else {
     typeSentence("未能構建 userText", responseElem);
   }
@@ -122,11 +126,7 @@ function uiFocus(responseElem) {
 }
 
 async function apiPostMessage(responseElem, callback) {
-  // reset lastMessage
-  lastReplyMessage = "";
-  // api post
-
-  console.log("API_URL", API_URL);
+  lastReplyMessage = ""; //reset LastMessage
 
   const response = await fetch(API_URL, {
     method: "POST",
