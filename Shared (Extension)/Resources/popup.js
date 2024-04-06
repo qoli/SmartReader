@@ -112,7 +112,7 @@ mainApp();
 
 setTimeout(() => {
   callByTimeOut();
-}, 800);
+}, 250);
 
 // 儲存資料
 async function saveData(key, data) {

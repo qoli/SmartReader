@@ -4,15 +4,18 @@
 
 html,
 body {
+  padding: 0;
+  margin: 0;
   min-width: 350px;
-  min-height: 601px;
-  padding: 10px;
+  max-height: 601px;
+  overflow: auto;
+}
+
+body {
+  padding: 10px !important;
   font-family: system-ui;
   text-align: left;
   font-size: 14px;
-  overflow: auto;
-  background-color: none;
-  height: inherit;
 }
 
 @media (prefers-color-scheme: dark) {
