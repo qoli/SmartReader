@@ -167,10 +167,18 @@ async function apiPostMessage(responseElem, callback) {
           dataDone = true;
           return;
         }
-        const token = JSON.parse(data.substring(6)).choices[0].delta.content;
+
+        let choice = JSON.parse(data.substring(6)).choices[0];
+        let token = choice.delta.content;
+
+        if (choice.finish_reason == "stop") {
+          token = token;
+          dataDone = true;
+        }
 
         typeSentence(token, responseElem);
       });
+
       if (dataDone) {
         console.log("#dataDone", dataDone);
         puashAssistantMessage(lastReplyMessage);
