@@ -1,5 +1,6 @@
 const API_KEY = "sk-MUmZpeZrINTZ6o4I6fD3B197615049E1Ae8e1a312aA11969";
-const API_URL = "https://www.gptapi.us/v1/chat/completions";
+// const API_URL = "https://www.gptapi.us/v1/chat/completions";
+const API_URL = "https://satyr-safe-heron.ngrok-free.app/v1/chat/completions";
 const API_MODEL = "gpt-3.5-turbo";
 const MAX_TOKEN = 8000;
 
@@ -61,18 +62,18 @@ function insertHtml() {
   <div id="ReadabilityBar">
   <div id="viewBar">
       <a href="javascript:void(0)" id="ReadabilityButton">
-          <svg width="32" height="30" viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                  d="M0 11.4445C0 5.55346 4.77563 0.777832 10.6667 0.777832H17.7778C23.6688 0.777832 28.4444 5.55346 28.4444 11.4445V18.5556C28.4444 24.4467 23.6688 29.2223 17.7778 29.2223H2.66666C1.19391 29.2223 0 28.0284 0 26.5556V11.4445Z"
-                  fill="#FFD86D" />
-              <circle cx="14.2222" cy="12.3333" r="4.44444" stroke="black" stroke-width="1.77778" />
-              <circle cx="26.6667" cy="12.3333" r="4.44444" stroke="black" stroke-width="1.77778" />
-              <path d="M15.1111 11.8889V13.6667" stroke="black" stroke-width="1.77778" stroke-linecap="round" />
-              <path d="M21.5556 11.4443H19.5556" stroke="black" stroke-width="1.77778" stroke-linecap="round" />
-              <path d="M25.7778 11.8889V13.6667" stroke="black" stroke-width="1.77778" stroke-linecap="round" />
-              <path d="M16.8889 21.512V21.512C19.4382 21.9829 22.0719 21.567 24.352 20.3334V20.3334"
-                  stroke="black" stroke-width="1.77778" stroke-linecap="round" />
-          </svg>
+      <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+          d="M0 6.66667C0 2.98477 2.98477 0 6.66667 0H11.1111C14.793 0 17.7778 2.98477 17.7778 6.66667V11.1111C17.7778 14.793 14.793 17.7778 11.1111 17.7778H1.66667C0.746192 17.7778 0 17.0316 0 16.1111V6.66667Z"
+          fill="#FFD86D" />
+      <circle cx="8.88888" cy="7.22225" r="2.77778" stroke="black" stroke-width="1.11111" />
+      <circle cx="16.6666" cy="7.22225" r="2.77778" stroke="black" stroke-width="1.11111" />
+      <path d="M9.44446 6.94458V8.05569" stroke="black" stroke-width="1.11111" stroke-linecap="round" />
+      <path d="M13.4722 6.66675H12.2222" stroke="black" stroke-width="1.11111" stroke-linecap="round" />
+      <path d="M16.1111 6.94458V8.05569" stroke="black" stroke-width="1.11111" stroke-linecap="round" />
+      <path d="M10.5555 12.959V12.959C12.1488 13.2533 13.7949 12.9934 15.22 12.2224V12.2224"
+          stroke="black" stroke-width="1.11111" stroke-linecap="round" />
+  </svg>
       </a>
   </div>
   </div>

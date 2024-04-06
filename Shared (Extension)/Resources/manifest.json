@@ -16,6 +16,9 @@
     "persistent": false
   },
   "host_permissions": ["*://*/*"],
+  "content_security_policy": {
+    "extension_page": "script-src 'self';"
+  },
   "content_scripts": [
     {
       "js": [

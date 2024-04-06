@@ -125,6 +125,9 @@ async function apiPostMessage(responseElem, callback) {
   // reset lastMessage
   lastReplyMessage = "";
   // api post
+
+  console.log("API_URL", API_URL);
+
   const response = await fetch(API_URL, {
     method: "POST",
     headers: {

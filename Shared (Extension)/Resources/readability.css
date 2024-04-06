@@ -333,6 +333,8 @@
 
   line-height: 1px;
   border: none;
+  width: 20px !important;
+  height: 18px !important;
 }
 
 /* animation */
