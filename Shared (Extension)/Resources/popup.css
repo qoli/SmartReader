@@ -7,24 +7,27 @@ body {
   padding: 10px;
   font-family: system-ui;
   text-align: left;
+  font-size: 14px;
+  overflow: scroll;
+  background-color: none;
 }
 
 @media (prefers-color-scheme: dark) {
-  /* Dark Mode styles go here. */
+  body {
+    background-color: none;
+  }
+
+  .buttonStyle,
+  .buttonBar {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
 }
 
-.floatLeft {
-  float: left;
-}
-
-.clearfix {
-  overflow: auto;
-}
-
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
+.TopBar {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .titleText h1,
@@ -43,9 +46,14 @@ body {
   opacity: 0.5;
 }
 
+h5 {
+  padding: 0 16px;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
 hr {
   background: none;
-  color: none;
   border: none;
   border-top: 1px solid #e0e0e0;
   margin: 0;
@@ -53,4 +61,55 @@ hr {
   margin: 8px 0;
   display: block !important;
   opacity: 0.2;
+}
+
+.buttonStyle {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.buttonBar {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 20px;
+}
+
+.buttonTitle {
+  display: block;
+}
+
+.buttonDesc {
+  display: block;
+  font-size: 12px;
+  opacity: 0.3;
+}
+
+.buttonBar input,
+.buttonBar button,
+.buttonBar select {
+  padding: 6px;
+  text-align: right;
+}
+
+textarea {
+  width: 100%;
+}
+
+.setFlex {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  gap: 10px;
+}
+
+#ReadabilityText {
+  font-size: 9px;
+  white-space: pre-wrap;
 }

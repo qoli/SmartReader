@@ -4,30 +4,105 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="popup.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
     <div class="TopBar">
-
         <img id="ReadabilityLoadingIMG" class="floatLeft" src="" height="48" width="48" alt="loading" />
-
 
         <div class="titleText">
             <h1>Eison</h1>
             <h5>愛省流君</h5>
         </div>
-
-
     </div>
-
-    <div class="clearfix"></div>
 
     <hr />
 
-    <p><button id="myButton">AI Summary</button></p>
-    <p><button id="coreContentText">CoreContentText</button></p>
-    <p><button id="sendNativeMessage">sendNativeMessage</button></p>
-    <script type="module" src="popup.js"></script>
+    <p class="buttonBar">
+        <span>執行 Eison 進行解釋</span>
+
+        <button class="clickListen" data-function="sendRunSummaryMessage">
+            AI Summary
+        </button>
+    </p>
+
+    <h5>Eison 網站設置</h5>
+
+    <div class="buttonBar">
+        <div>
+            <span class="buttonTitle">當前網站</span>
+            <span id="currentHOST" class="buttonDesc">...</span>
+        </div>
+
+        <select id="action-select">
+            <option value="execute">小圖標執行</option>
+            <option value="execute">全自動執行</option>
+            <option value="not-execute">隱藏</option>
+        </select>
+    </div>
+
+    <h5>ChatGPT API 設定</h5>
+
+    <div class="buttonBar">
+        <div>
+            <span class="buttonTitle">API URL</span>
+        </div>
+        <input class="" id="APIURL" type="text" value="https://api.openai.com/v1/chat/completions" />
+    </div>
+
+    <div class="buttonBar">
+        <div>
+            <span class="buttonTitle">API Key</span>
+        </div>
+        <input class="" id="APIKey" type="text" value="sk-xxxxxx" />
+    </div>
+
+    <div class="buttonBar">
+        <div>
+            <span class="buttonTitle">API 模型</span>
+        </div>
+        <input class="" id="APIKey" type="text" value="gpt-3.5-turbo" />
+    </div>
+
+    <div class="buttonBar">
+        <div>
+            <span class="buttonTitle">API 設定</span>
+            <span class="buttonDesc">API 設定需要保存</span>
+        </div>
+        <div class="setFlex">
+            <button class="clickListen" data-function="saveAPIConfig">
+                檢查連線
+            </button>
+            <button class="clickListen" data-function="saveAPIConfig">保存</button>
+        </div>
+    </div>
+
+    <h5>高級設定</h5>
+
+    <div class="buttonBar">
+        <div>
+            <span class="buttonTitle">全局</span>
+            <span class="buttonDesc">...</span>
+        </div>
+
+        <select id="action-select">
+            <option value="execute">小圖標執行</option>
+            <option value="execute">全自動執行</option>
+            <option value="not-execute">隱藏</option>
+        </select>
+    </div>
+
+    <h5>除錯資料</h5>
+
+    <div class="buttonStyle">
+        <button class="clickListen" data-function="getDebugText">讀取</button>
+        <hr />
+        <pre id="ReadabilityText">...</pre>
+    </div>
+
+    <script src="shared.js"></script>
+    <script src="popup.js"></script>
 </body>
 
 </html>

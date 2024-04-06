@@ -1,5 +1,10 @@
+const API_KEY = "sk-MUmZpeZrINTZ6o4I6fD3B197615049E1Ae8e1a312aA11969";
+const API_URL = "https://www.gptapi.us/v1/chat/completions";
+const API_MODEL = "gpt-3.5-turbo";
+const MAX_TOKEN = 8000;
+
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  console.log("Content / Received request: ", request);
+  console.log("Content / Received Message: ", request);
 
   if (request == "runSummary") {
     runSummary();
@@ -9,8 +14,8 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
     });
   }
 
-  if (request == "coreContentText") {
-    buildCoreContentText();
+  if (request == "getDebugText") {
+    getDebugText();
 
     sendResponse({
       callback: "coreContentText-ok",
@@ -25,6 +30,21 @@ if (document.readyState !== "loading") {
     ready();
   });
 }
+
+function sendMessage(obj) {
+  browser.runtime.sendMessage(obj);
+}
+
+function getDebugText() {
+  let article = new Readability(document.cloneNode(true), {}).parse();
+
+  sendMessage({
+    message: "debugText",
+    body: article.textContent,
+  });
+}
+
+//
 
 function ready() {
   insertHtml();
@@ -153,7 +173,7 @@ function insertHtml() {
     }
   });
 }
-
+// userReply:Bool
 function insertMessage(message, userReply) {
   var parentDiv = document.getElementById("ReadabilityMessageGroup");
 
@@ -229,13 +249,14 @@ function callGPT() {
   }
 
   document.querySelector("#response").innerHTML = "";
-  console.log("...isProbablyReaderable");
   let coreText = postProcessText(article.textContent);
 
   document.querySelector("#receiptTitle").innerHTML = "";
   document.querySelector("#receipt").innerHTML = "";
   document.querySelector("#ReadabilityTitle").innerHTML = article.title;
-  document.querySelector("#ReadabilityHost").innerHTML = window.location.host;
+  document.querySelector(
+    "#ReadabilityHost"
+  ).innerHTML = `${window.location.host} / ${API_MODEL}`;
 
   callGPTSummary(coreText);
 }

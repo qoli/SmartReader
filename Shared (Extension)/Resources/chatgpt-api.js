@@ -1,8 +1,3 @@
-const API_KEY = "sk-MUmZpeZrINTZ6o4I6fD3B197615049E1Ae8e1a312aA11969";
-const API_URL = "https://www.gptapi.us/v1/chat/completions";
-const API_MODEL = "gpt-3.5-turbo";
-const MAX_TOKEN = 8000;
-
 let lastReplyMessage = "";
 let messagesGroup = [];
 
@@ -33,21 +28,31 @@ function getMaxTimestampElem() {
 }
 
 function puashAssistantMessage(text) {
-  const messageStyle = {
+  if (text.length <= 0) {
+    return;
+  }
+
+  const messageWithRole = {
     role: "assistant",
     content: text,
   };
 
-  messagesGroup.push(messageStyle);
+  messagesGroup.push(messageWithRole);
 }
 
 function pushUserMessage(text) {
-  const messageStyle = {
+  if (text.length <= 0) {
+    return;
+  }
+
+  const messageWithRole = {
     role: "user",
     content: text,
   };
 
-  messagesGroup.push(messageStyle);
+  console.log("UserMessage / length", countTokens(text), text.length);
+
+  messagesGroup.push(messageWithRole);
 }
 
 // GPT 總結
@@ -59,8 +64,7 @@ async function callGPTSummary(inputText) {
 
   let systemText = "你是幫助用戶理解網頁內容的專家。";
   let assistantText = "";
-  let promptText = `
-為最後提供的文字內容進行按要求的總結。如果是其他語言，請翻譯到繁體中文。
+  let promptText = `為最後提供的文字內容進行按要求的總結。如果是其他語言，請翻譯到繁體中文。
 請嚴格按照下面的格式進行輸出，在格式以外的地方，不需要多餘的文本內容。
 
 這裡是格式指導：
@@ -77,8 +81,6 @@ async function callGPTSummary(inputText) {
 
   let userText = promptText + inputText + ">";
 
-  console.log("length", userText.length);
-
   if (userText.length > MAX_TOKEN) {
     console.log("Token,Too Long");
   }
@@ -89,7 +91,6 @@ async function callGPTSummary(inputText) {
   }
 
   if (inputText) {
-    // add the system message
     const systemMessage = {
       role: "system",
       content: systemText,
@@ -98,22 +99,8 @@ async function callGPTSummary(inputText) {
       messagesGroup.push(systemMessage);
     }
 
-    // add the assistant message
-    const assistantMessage = {
-      role: "assistant",
-      content: assistantText,
-    };
-    if (assistantText.length > 0) {
-      messagesGroup.push(assistantMessage);
-    }
-
-    // add the user message
-    const userMessage = {
-      role: "user",
-      content: userText,
-    };
-
-    messagesGroup.push(userMessage);
+    puashAssistantMessage(assistantText);
+    pushUserMessage(userText);
 
     await apiPostMessage(responseElem, function () {
       hideID("response");
@@ -128,7 +115,6 @@ async function callGPTSummary(inputText) {
 }
 
 function uiFocus(responseElem) {
-  console.log("uiFocus");
   responseElem.classList.add("readabilityDone");
   setTimeout(() => {
     responseElem.classList.remove("readabilityDone");
@@ -183,7 +169,7 @@ async function apiPostMessage(responseElem, callback) {
         typeSentence(token, responseElem);
       });
       if (dataDone) {
-        console.log("#Loop", dataDone);
+        console.log("#dataDone", dataDone);
         puashAssistantMessage(lastReplyMessage);
 
         // 在适当的时候调用回调函数
@@ -285,4 +271,15 @@ function hideID(idName) {
 
 function showID(idName) {
   document.querySelector("#" + idName).style.display = "block";
+}
+
+function countTokens(text) {
+  // 使用正则表达式将文本按照非字母数字字符进行分词
+  var tokens = text.split(/[^\w\u4e00-\u9fa5]+/);
+  // 过滤掉空的Token
+  tokens = tokens.filter(function (token) {
+    return token.length > 0;
+  });
+  // 返回Token的数量
+  return tokens.length;
 }
