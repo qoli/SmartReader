@@ -90,8 +90,10 @@
 }
 
 #ReadabilityBox::-webkit-scrollbar {
-  width: 0.1rem; /* 设置滚动条宽度为 0.1rem */
-  background-color: transparent; /* 设置滚动条背景颜色为透明 */
+  width: 0.1rem;
+  /* 设置滚动条宽度为 0.1rem */
+  background-color: transparent;
+  /* 设置滚动条背景颜色为透明 */
 }
 
 .ReadabilityFont {
@@ -251,6 +253,7 @@
   justify-content: center;
   align-items: center;
   padding-top: 16px;
+  margin-bottom: 1em;
 }
 
 #ReadabilityLoading span {
@@ -301,7 +304,7 @@
 
 #ReadabilityBar #viewBar {
   background: rgba(244, 245, 244, 0.85);
-  box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.12);
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
 
@@ -337,6 +340,16 @@
   height: 18px !important;
 }
 
+.readabilityReply .code {
+  display: block;
+  background-color: rgba(120, 120, 120, 0.5);
+  padding: 1em;
+  word-break: keep-all;
+  white-space: pre-wrap;
+  border-radius: 6px;
+  margin: 6px 0;
+}
+
 /* animation */
 
 .fadeIn {
@@ -352,9 +365,11 @@
     opacity: 1;
     display: flex !important;
   }
+
   99% {
     opacity: 0;
   }
+
   100% {
     display: none !important;
     opacity: 0;
@@ -370,9 +385,11 @@
     opacity: 0;
     display: none !important;
   }
+
   1% {
     display: flex !important;
   }
+
   100% {
     opacity: 1;
   }
@@ -384,9 +401,11 @@
     bottom: -200px;
     display: none !important;
   }
+
   1% {
     display: block !important;
   }
+
   100% {
     opacity: 1;
     bottom: 0px;
@@ -398,23 +417,62 @@
   100% {
     transform: translateX(0);
   }
+
   10%,
   30%,
   50%,
   70% {
     transform: translateX(-5px);
   }
+
   20%,
   40%,
   60% {
     transform: translateX(5px);
   }
+
   80% {
     transform: translateX(3px);
   }
+
   90% {
     transform: translateX(-3px);
   }
 }
 
 /* @media */
+
+@media (prefers-color-scheme: dark) {
+  #ReadabilityBar #viewBar {
+    background-color: #000 !important;
+  }
+
+  .ReadabilityStyle {
+    background: linear-gradient(
+      180deg,
+      rgba(10, 10, 10, 0.95) 0%,
+      rgba(10, 10, 10, 0.95) 100%
+    ) !important;
+
+    color: #fff !important;
+  }
+
+  .safariExtensionTitle,
+  .safariExtensionHost,
+  #response,
+  #receipt,
+  #receiptTitle,
+  #ReadabilityLoading span {
+    color: #fff !important;
+  }
+
+  #ReadabilityKeyboard textarea,
+  .readabilityInsideStyle {
+    background-color: #333333 !important;
+    color: #fff !important;
+  }
+
+  #ReadabilityBoxFrame svg {
+    color: #fff !important;
+  }
+}

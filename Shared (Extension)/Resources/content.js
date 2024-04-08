@@ -95,24 +95,27 @@ function insertHtml() {
 
 <div id="ReadabilityKeyboard" class="ReadabilityStyle morePadding">
 <div class="readabilityInput fixMorePadding">
-<textarea id="ReadabilityTextarea" placeholder="Reply(Enter for Send)" rows="1" cols="1"
-    class="readabilityInsideStyle"></textarea>
-<div id="ReadabilityClose" class="readabilityInsideStyle">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 4L4 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" style="--noir-inline-color: #959eae" data-noir-inline-color=""></path>
-        <path d="M4 4L12 12" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" style="--noir-inline-color: #959eae" data-noir-inline-color=""></path>
-    </svg>
-</div>
+    <textarea id="ReadabilityTextarea" placeholder="Reply(Enter for Send)" rows="1" cols="1"
+        class="readabilityInsideStyle"></textarea>
+    <div id="ReadabilityClose" class="readabilityInsideStyle">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" data-noir-inline-color="">
+            </path>
+            <path d="M4 4L12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" data-noir-inline-color="">
+            </path>
+        </svg>
+    </div>
 
-<div id="ReadabilitySend" class="readabilityInsideStyle" style="display: none">
-    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-linecap="round"
-        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 14 21 3"></path>
-        <path d="m21 3-6.5 18a.55.55 0 0 1-1 0L10 14l-7-3.5a.55.55 0 0 1 0-1L21 3Z"></path>
-    </svg>
-</div>
+    <div id="ReadabilitySend" class="readabilityInsideStyle" style="display: none">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 14 21 3"></path>
+            <path d="m21 3-6.5 18a.55.55 0 0 1-1 0L10 14l-7-3.5a.55.55 0 0 1 0-1L21 3Z"></path>
+        </svg>
+    </div>
 </div>
 </div>
 <!-- ReadabilityKeyboard / End  -->
