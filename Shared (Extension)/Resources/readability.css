@@ -340,7 +340,7 @@
   height: 18px !important;
 }
 
-.readabilityReply .code {
+.readabilityReply code {
   display: block;
   background-color: rgba(120, 120, 120, 0.5);
   padding: 1em;

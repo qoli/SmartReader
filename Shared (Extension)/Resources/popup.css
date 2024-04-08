@@ -63,31 +63,6 @@ h5 {
   gap: 10px;
 }
 
-/* for dark */
-@media (prefers-color-scheme: dark) {
-  svg {
-    color: #fff !important;
-  }
-
-  h4,
-  h5 {
-    color: #fff !important;
-  }
-
-  .inputStyle {
-    background-color: #151617 !important;
-  }
-
-  .buttonBar {
-    background: #2e3032 !important;
-    color: #ffffff !important;
-  }
-
-  .baseModeStyle {
-    background-color: #151617 !important;
-  }
-}
-
 .flexCenter {
   display: flex;
   justify-content: center;
@@ -204,6 +179,7 @@ h5 {
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='8' ry='8' stroke='currentColor' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='10' stroke-linecap='square'/%3e%3c/svg%3e");
   border-radius: 8px;
   color: #151617;
+  box-sizing: border-box;
 }
 
 .baseModeStyle {
@@ -278,4 +254,36 @@ input::placeholder {
 
 .viewBlock span {
   display: flex;
+}
+
+/* for dark */
+@media (prefers-color-scheme: dark) {
+  html,
+  body,
+  span,
+  .viewBlock {
+    color: #fff !important;
+  }
+
+  svg {
+    color: #fff !important;
+  }
+
+  h4,
+  h5 {
+    color: #fff !important;
+  }
+
+  .inputStyle {
+    background-color: #151617 !important;
+  }
+
+  .buttonBar {
+    background: #2e3032 !important;
+    color: #ffffff !important;
+  }
+
+  .baseModeStyle {
+    background-color: #151617 !important;
+  }
 }
