@@ -50,7 +50,7 @@ function pushUserMessage(text) {
     content: text,
   };
 
-  console.log("UserMessage / length", countTokens(text), text.length);
+  console.log("UserMessage / length", text.length);
 
   messagesGroup.push(messageWithRole);
 }
@@ -80,10 +80,6 @@ async function callGPTSummary(inputText) {
   showID("response");
 
   let userText = promptText + inputText + ">";
-
-  if (userText.length > MAX_TOKEN) {
-    console.log("Token,Too Long");
-  }
 
   if (userText.length <= 0) {
     typeSentence("userText Empty", responseElem);
@@ -118,13 +114,6 @@ async function callGPTSummary(inputText) {
   }
 }
 
-function uiFocus(responseElem) {
-  responseElem.classList.add("readabilityDone");
-  setTimeout(() => {
-    responseElem.classList.remove("readabilityDone");
-  }, 1600);
-}
-
 async function apiPostMessage(responseElem, callback) {
   lastReplyMessage = ""; //reset LastMessage
 
@@ -146,7 +135,10 @@ async function apiPostMessage(responseElem, callback) {
     ?.pipeThrough(new TextDecoderStream())
     .getReader();
 
-  if (!reader) return;
+  if (!reader) {
+    typeSentence("pipeThrough getReader is nil", responseElem);
+    return;
+  }
 
   let errorResponse;
 
@@ -190,19 +182,27 @@ async function apiPostMessage(responseElem, callback) {
         break;
       }
     }
-  } catch (error) {}
+  } catch (error) {
+    typeSentence(error, responseElem);
+  }
 
   if (!response.ok) {
-    let errorJSON = JSON.parse(errorResponse);
+    try {
+      console.log("errorResponse", errorResponse);
 
-    console.error(
-      "HTTP ERROR: " + response.status + "\n" + response.statusText
-    );
+      let errorJSON = JSON.parse(errorResponse);
 
-    typeSentence(
-      "Status: " + response.status + "\n" + errorJSON.error.message,
-      responseElem
-    );
+      console.error(
+        "HTTP ERROR: " + response.status + "\n" + response.statusText
+      );
+
+      typeSentence(
+        "Status: " + response.status + "\n" + errorJSON.error.message,
+        responseElem
+      );
+    } catch (error) {
+      typeSentence(error, responseElem);
+    }
   }
 }
 
@@ -284,13 +284,9 @@ function showID(idName) {
   document.querySelector("#" + idName).style.display = "block";
 }
 
-function countTokens(text) {
-  // 使用正则表达式将文本按照非字母数字字符进行分词
-  var tokens = text.split(/[^\w\u4e00-\u9fa5]+/);
-  // 过滤掉空的Token
-  tokens = tokens.filter(function (token) {
-    return token.length > 0;
-  });
-  // 返回Token的数量
-  return tokens.length;
+function uiFocus(responseElem) {
+  responseElem.classList.add("readabilityDone");
+  setTimeout(() => {
+    responseElem.classList.remove("readabilityDone");
+  }, 1600);
 }
