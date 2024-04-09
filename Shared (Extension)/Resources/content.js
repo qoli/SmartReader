@@ -1,4 +1,5 @@
 const MAX_TOKEN = 8000;
+let lastURL = "";
 
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   console.log("Content / Received Message: ", request);
@@ -249,7 +250,9 @@ function callGPT() {
     return;
   }
 
-  console.log("messagesGroup", messagesGroup.length);
+  if (lastURL != window.location.href) {
+    messagesGroup = [];
+  }
 
   if (messagesGroup.length > 0) {
     return;
@@ -264,6 +267,8 @@ function callGPT() {
   document.querySelector(
     "#ReadabilityHost"
   ).innerHTML = `${window.location.host} / ${API_MODEL}`;
+
+  lastURL = window.location.href;
 
   callGPTSummary(coreText);
 }
