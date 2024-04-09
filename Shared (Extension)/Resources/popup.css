@@ -37,7 +37,6 @@ body {
 h4 {
   padding: 0;
   margin: 0;
-
   margin-top: 30px;
   margin-bottom: 8px;
   font-size: 14px;
@@ -219,6 +218,10 @@ h5 {
   overflow: hidden;
 }
 
+.modeSelectBox p {
+  color: rgba(120, 120, 120, 0.5);
+}
+
 .modeMiniIcon {
   display: flex;
   justify-content: flex-start;
@@ -245,7 +248,7 @@ h5 {
 }
 
 .baseModeStyle .miniIcon {
-  border: 2px solid #eaeaea;
+  border: 2px solid rgba(120, 120, 120, 0.2);
   border-radius: 0px 8px 8px 0px;
   width: 36px;
   height: 33px;
@@ -350,6 +353,8 @@ input::placeholder {
   border-radius: 99px;
 
   font-weight: bolder;
+  text-decoration: none;
+  color: #ffffff;
 }
 
 /* for dark */

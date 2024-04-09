@@ -1,6 +1,33 @@
 let lastReplyMessage = "";
 let messagesGroup = [];
 
+let API_URL = "";
+let API_KEY = "";
+let API_MODEL = "";
+let APP_PromptText = "";
+let APP_SystemText = "";
+
+async function setupGPT() {
+  let systemText = `你是幫助用戶理解網頁內容的專家。`;
+
+  let thisPrompt = `為最後提供的文字內容進行按要求的總結。如果是其他語言，請翻譯到繁體中文。
+請嚴格按照下面的格式進行輸出，在格式以外的地方，不需要多餘的文本內容。
+
+這裡是格式指導：
+總結：
+簡短的一句話概括內容，此單獨佔用一行，記得輸出換行符號；
+要點：
+對文字內容提出多個要點內容，並每一個要點都附加一個裝飾用的 emoji，每一個要點佔用一行，注意記得輸出換行符號；
+
+下面為需要總結的文字內容：`;
+
+  API_URL = await loadData("APIURL", "https://...");
+  API_KEY = await loadData("APIKEY", "sk-");
+  API_MODEL = await loadData("APIMODEL", "gpt-3.5-turbo");
+  APP_PromptText = await loadData("APPPromptText", thisPrompt);
+  APP_SystemText = await loadData("APPSystemText", systemText);
+}
+
 async function sendReplytext(text) {
   pushUserMessage(text);
   let elem = getMaxTimestampElem();
@@ -55,6 +82,17 @@ function pushUserMessage(text) {
   messagesGroup.push(messageWithRole);
 }
 
+function setupSystemMessage() {
+  let systemText = APP_SystemText;
+  const systemMessage = {
+    role: "system",
+    content: systemText,
+  };
+  if (systemText.length > 0) {
+    messagesGroup.push(systemMessage);
+  }
+}
+
 // GPT 總結
 async function callGPTSummary(inputText) {
   //Cache DOM elements to avoid unnecessary DOM traversals
@@ -62,24 +100,12 @@ async function callGPTSummary(inputText) {
   let responseElem = document.getElementById("response");
   lastReplyMessage = "";
 
-  let systemText = "你是幫助用戶理解網頁內容的專家。";
   let assistantText = "";
-  let promptText = `為最後提供的文字內容進行按要求的總結。如果是其他語言，請翻譯到繁體中文。
-請嚴格按照下面的格式進行輸出，在格式以外的地方，不需要多餘的文本內容。
-
-這裡是格式指導：
-總結：
-簡短的一句話概括內容，此單獨佔用一行，記得輸出換行符號；
-要點：
-對文字內容提出多個要點內容，並每一個要點都附加一個裝飾用的 emoji，每一個要點佔用一行，注意記得輸出換行符號；
-
-下面為需要總結的文字內容：
-<`;
 
   callLoading();
   showID("response");
 
-  let userText = promptText + inputText + ">";
+  let userText = APP_PromptText + "<" + inputText + ">";
 
   if (userText.length <= 0) {
     typeSentence("userText Empty", responseElem);
@@ -87,14 +113,7 @@ async function callGPTSummary(inputText) {
   }
 
   if (inputText) {
-    const systemMessage = {
-      role: "system",
-      content: systemText,
-    };
-    if (systemText.length > 0) {
-      messagesGroup.push(systemMessage);
-    }
-
+    setupSystemMessage();
     puashAssistantMessage(assistantText);
     pushUserMessage(userText);
 

@@ -15,6 +15,10 @@
     "service_worker": "background.js",
     "persistent": false
   },
+
+  "content_security_policy": {
+    "extension_page": "script-src 'self';"
+  },
   "content_scripts": [
     {
       "js": [

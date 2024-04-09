@@ -1,7 +1,3 @@
-let API_URL = "";
-let API_KEY = "";
-let API_MODEL = "";
-
 const MAX_TOKEN = 8000;
 
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -49,9 +45,7 @@ function getDebugText() {
 
 function ready() {
   (async () => {
-    API_URL = await loadData("APIURL", "https://...");
-    API_KEY = await loadData("APIKEY", "sk-");
-    API_MODEL = await loadData("APIMODEL", "gpt-3.5-turbo");
+    await setupGPT();
 
     insertHtml();
     console.log("Eison-Config:", API_URL, API_KEY, API_MODEL);

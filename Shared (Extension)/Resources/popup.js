@@ -141,13 +141,23 @@ function setupButtonBarActions() {
   });
 }
 
+function setupSettingsLink() {
+  var settingsLink = document.getElementById("SettingsLink");
+
+  if (settingsLink) {
+    let href = browser.runtime.getURL("settings.html");
+    settingsLink.href = href;
+  }
+}
+
 function mainApp() {
   setupModeSelectBox();
   setupButtonBarActions();
-
-  // 呼叫函式以設置按鈕的點擊事件監聽器
   addClickListeners();
+
+  //runtime only
   addMessageListener();
+  setupSettingsLink();
 }
 
 // async ...

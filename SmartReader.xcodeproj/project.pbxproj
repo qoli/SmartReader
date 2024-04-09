@@ -17,6 +17,10 @@
 		EA2E1CAA2BB85DDC00ABEF69 /* chatgpt-api.js in Resources */ = {isa = PBXBuildFile; fileRef = EA2E1CA82BB85DDC00ABEF69 /* chatgpt-api.js */; };
 		EA2E1CAC2BB8722000ABEF69 /* marked.min.js in Resources */ = {isa = PBXBuildFile; fileRef = EA2E1CAB2BB8722000ABEF69 /* marked.min.js */; };
 		EA2E1CAD2BB8722000ABEF69 /* marked.min.js in Resources */ = {isa = PBXBuildFile; fileRef = EA2E1CAB2BB8722000ABEF69 /* marked.min.js */; };
+		EA7726112BC57025005A194D /* settings.html in Resources */ = {isa = PBXBuildFile; fileRef = EA7726102BC57025005A194D /* settings.html */; };
+		EA7726122BC57025005A194D /* settings.html in Resources */ = {isa = PBXBuildFile; fileRef = EA7726102BC57025005A194D /* settings.html */; };
+		EA7726142BC576BD005A194D /* settings.js in Resources */ = {isa = PBXBuildFile; fileRef = EA7726132BC576BD005A194D /* settings.js */; };
+		EA7726152BC576BD005A194D /* settings.js in Resources */ = {isa = PBXBuildFile; fileRef = EA7726132BC576BD005A194D /* settings.js */; };
 		EACC21482BABE88D00D85D47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACC21472BABE88D00D85D47 /* AppDelegate.swift */; };
 		EACC214A2BABE88D00D85D47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACC21492BABE88D00D85D47 /* SceneDelegate.swift */; };
 		EACC214D2BABE88D00D85D47 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EACC214C2BABE88D00D85D47 /* Base */; };
@@ -107,6 +111,8 @@
 		EA2E1CA52BB81D8D00ABEF69 /* readability.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = readability.css; sourceTree = "<group>"; };
 		EA2E1CA82BB85DDC00ABEF69 /* chatgpt-api.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "chatgpt-api.js"; sourceTree = "<group>"; };
 		EA2E1CAB2BB8722000ABEF69 /* marked.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = marked.min.js; sourceTree = "<group>"; };
+		EA7726102BC57025005A194D /* settings.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = settings.html; sourceTree = "<group>"; };
+		EA7726132BC576BD005A194D /* settings.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = settings.js; sourceTree = "<group>"; };
 		EACC212F2BABE88D00D85D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
 		EACC21302BABE88D00D85D47 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		EACC21312BABE88D00D85D47 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
@@ -226,12 +232,14 @@
 				EACC21392BABE88D00D85D47 /* images */,
 				EA26F9B52BBABD2300FFCD76 /* loadingBase64.js */,
 				EACC213A2BABE88D00D85D47 /* manifest.json */,
+				EA7726132BC576BD005A194D /* settings.js */,
 				EA2E1CAB2BB8722000ABEF69 /* marked.min.js */,
 				EACC213E2BABE88D00D85D47 /* popup.css */,
 				EACC213D2BABE88D00D85D47 /* popup.html */,
 				EACC213F2BABE88D00D85D47 /* popup.js */,
 				EA2E1CA52BB81D8D00ABEF69 /* readability.css */,
 				EA2E1CA02BB80CA900ABEF69 /* Readability.js */,
+				EA7726102BC57025005A194D /* settings.html */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -441,6 +449,7 @@
 				EACC21872BABE88E00D85D47 /* background.js in Resources */,
 				EA2E1CAC2BB8722000ABEF69 /* marked.min.js in Resources */,
 				EACC218D2BABE88E00D85D47 /* popup.css in Resources */,
+				EA7726112BC57025005A194D /* settings.html in Resources */,
 				EACC218B2BABE88E00D85D47 /* popup.html in Resources */,
 				EACC21832BABE88E00D85D47 /* images in Resources */,
 				EACC21852BABE88E00D85D47 /* manifest.json in Resources */,
@@ -448,6 +457,7 @@
 				EA2E1CA92BB85DDC00ABEF69 /* chatgpt-api.js in Resources */,
 				EACC21892BABE88E00D85D47 /* content.js in Resources */,
 				EA2E1CA62BB81D8D00ABEF69 /* readability.css in Resources */,
+				EA7726142BC576BD005A194D /* settings.js in Resources */,
 				EA26F9B62BBABD2300FFCD76 /* loadingBase64.js in Resources */,
 				EACC218F2BABE88E00D85D47 /* popup.js in Resources */,
 				EA2E1CA32BB80CA900ABEF69 /* Readability.js in Resources */,
@@ -461,6 +471,7 @@
 				EACC21882BABE88E00D85D47 /* background.js in Resources */,
 				EA2E1CAD2BB8722000ABEF69 /* marked.min.js in Resources */,
 				EACC218E2BABE88E00D85D47 /* popup.css in Resources */,
+				EA7726122BC57025005A194D /* settings.html in Resources */,
 				EACC218C2BABE88E00D85D47 /* popup.html in Resources */,
 				EACC21842BABE88E00D85D47 /* images in Resources */,
 				EACC21862BABE88E00D85D47 /* manifest.json in Resources */,
@@ -468,6 +479,7 @@
 				EA2E1CAA2BB85DDC00ABEF69 /* chatgpt-api.js in Resources */,
 				EACC218A2BABE88E00D85D47 /* content.js in Resources */,
 				EA2E1CA72BB81D8D00ABEF69 /* readability.css in Resources */,
+				EA7726152BC576BD005A194D /* settings.js in Resources */,
 				EA26F9B72BBABD2300FFCD76 /* loadingBase64.js in Resources */,
 				EACC21902BABE88E00D85D47 /* popup.js in Resources */,
 				EA2E1CA42BB80CA900ABEF69 /* Readability.js in Resources */,
