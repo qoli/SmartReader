@@ -116,19 +116,23 @@ function setupButtonBarActions() {
   buttonBars.forEach((buttonBar) => {
     buttonBar.addEventListener("click", function () {
       const id = buttonBar.getAttribute("data-id");
-      const correspondingElement = document.querySelector("#" + id);
-
-      if (correspondingElement) {
-        if (correspondingElement.classList.contains("areaSlideVisible")) {
-          correspondingElement.classList.remove("areaSlideVisible");
-          correspondingElement.classList.add("areaSlideHidden");
-        } else {
-          correspondingElement.classList.remove("areaSlideHidden");
-          correspondingElement.classList.add("areaSlideVisible");
-        }
-      }
+      toggleArea(id);
     });
   });
+}
+
+function toggleArea(id) {
+  const correspondingElement = document.querySelector("#" + id);
+
+  if (correspondingElement) {
+    if (correspondingElement.classList.contains("areaSlideVisible")) {
+      correspondingElement.classList.remove("areaSlideVisible");
+      correspondingElement.classList.add("areaSlideHidden");
+    } else {
+      correspondingElement.classList.remove("areaSlideHidden");
+      correspondingElement.classList.add("areaSlideVisible");
+    }
+  }
 }
 
 function setupSettingsLink() {
@@ -142,7 +146,17 @@ function setupSettingsLink() {
 
 function setupStatus() {
   let icon = document.getElementById("StatusIcon");
-  let text = document.getElementById("StatusText").innerText;
+  let text = document.getElementById("StatusText");
+
+  (async () => {
+    let bool = await setupGPT();
+    if (bool) {
+      text.innerHTML = "已設定";
+    } else {
+      text.innerHTML = "請先設定 ChatGPT API";
+      toggleArea("AreaWebsite");
+    }
+  })();
 }
 
 function mainApp() {
@@ -153,6 +167,7 @@ function mainApp() {
   //runtime only
   addMessageListener();
   setupSettingsLink();
+  setupStatus();
 }
 
 // async ...

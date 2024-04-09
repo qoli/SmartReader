@@ -26,6 +26,12 @@ async function setupGPT() {
   API_MODEL = await loadData("APIMODEL", "gpt-3.5-turbo");
   APP_PromptText = await loadData("APPPromptText", thisPrompt);
   APP_SystemText = await loadData("APPSystemText", systemText);
+
+  if (API_URL == "https://...") {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 async function sendReplytext(text) {
