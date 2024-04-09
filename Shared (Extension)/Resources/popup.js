@@ -39,11 +39,21 @@ function addClickListeners() {
       // 取得 data-function 屬性的值
       const functionName = button.getAttribute("data-function");
 
-      console.log("call", functionName);
-
       // 檢查是否存在 data-function 屬性
       if (functionName) {
-        window[functionName]();
+        // 取得 data-params 屬性的值
+        const params = button.getAttribute("data-params");
+
+        console.log("call", functionName, params);
+
+        // 檢查是否存在 data-params 屬性
+        if (params) {
+          // 呼叫函數並傳遞參數
+          window[functionName](params);
+        } else {
+          // 呼叫函數，不傳遞參數
+          window[functionName]();
+        }
       }
     });
   });
@@ -52,6 +62,14 @@ function addClickListeners() {
 //
 function sendRunSummaryMessage() {
   sendMessageToContent("runSummary");
+}
+
+function selectMode(modeName) {
+  console.log("select", modeName);
+}
+
+function openSettings() {
+  console.log("openSettings");
 }
 
 function getHostFromUrl(url) {
@@ -85,18 +103,55 @@ async function updateConfig() {
   document.querySelector("#APIMODEL").value = API_MODEL;
 }
 
-function mainApp() {
-  addMessageListener();
+function setupModeSelectBox() {
+  function handleModeSelectBoxClick() {
+    const modeSelectBoxes = document.querySelectorAll(".modeSelectBox");
 
-  let lottieURL = browser.runtime.getURL("images/loading.gif");
-  document.querySelector("#ReadabilityLoadingIMG").src = lottieURL;
+    modeSelectBoxes.forEach((box) => {
+      box.classList.remove("selected");
+    });
+
+    this.classList.add("selected");
+  }
+
+  const modeSelectBoxes = document.querySelectorAll(".modeSelectBox");
+  modeSelectBoxes.forEach((box) => {
+    box.addEventListener("click", handleModeSelectBoxClick);
+  });
+}
+
+function setupButtonBarActions() {
+  const buttonBars = document.querySelectorAll(".buttonBar");
+
+  buttonBars.forEach((buttonBar) => {
+    buttonBar.addEventListener("click", function () {
+      const id = buttonBar.getAttribute("data-id");
+      const correspondingElement = document.querySelector("#" + id);
+
+      if (correspondingElement) {
+        if (correspondingElement.classList.contains("areaSlideVisible")) {
+          correspondingElement.classList.remove("areaSlideVisible");
+          correspondingElement.classList.add("areaSlideHidden");
+        } else {
+          correspondingElement.classList.remove("areaSlideHidden");
+          correspondingElement.classList.add("areaSlideVisible");
+        }
+      }
+    });
+  });
+}
+
+function mainApp() {
+  setupModeSelectBox();
+  setupButtonBarActions();
 
   // 呼叫函式以設置按鈕的點擊事件監聽器
   addClickListeners();
+  addMessageListener();
 }
 
 // async ...
-function callByTimeOut() {
+function delayCall() {
   (async () => {
     await updateConfig();
 
@@ -107,12 +162,6 @@ function callByTimeOut() {
     );
   })();
 }
-
-mainApp();
-
-setTimeout(() => {
-  callByTimeOut();
-}, 250);
 
 // 儲存資料
 async function saveData(key, data) {
@@ -146,3 +195,10 @@ async function loadData(key, defaultValue) {
     return "";
   }
 }
+
+// Run app
+mainApp();
+
+setTimeout(() => {
+  delayCall();
+}, 250);

@@ -41,7 +41,7 @@
                 </svg>
             </div>
 
-            <div class="flexCenter flex1 contentRight font12">
+            <div class="flexCenter  flex1 contentRight font12">
                 <div class="statusBox warming"></div>
                 <div>尚未設定模型</div>
             </div>
@@ -66,7 +66,9 @@
                 <span>Google.com</span>
             </div>
 
-            <div class="flexLeft"></div>
+            <div class="flexLeft">
+
+            </div>
         </div>
 
         <div id="AreaWebsite" class="area areaSlideVisible">
@@ -158,10 +160,38 @@
             </div>
         </div>
 
-        <div class="flexCenter">
-            <div class="secondaryButton clickListen" data-function="openSettings">
-                Open Settings
+        <div class="buttonBar" data-id="AreaAdvanced">
+            <div class="flexLeft gap8">
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M8 12.7778C8 13.3083 7.78929 13.817 7.41421 14.192C7.03914 14.5671 6.53043 14.7778 6 14.7778C5.46957 14.7778 4.96086 14.5671 4.58579 14.192C4.21071 13.817 4 13.3083 4 12.7778C4 12.2474 4.21071 11.7387 4.58579 11.3636C4.96086 10.9885 5.46957 10.7778 6 10.7778C6.53043 10.7778 7.03914 10.9885 7.41421 11.3636C7.78929 11.7387 8 12.2474 8 12.7778Z"
+                        fill="currentColor" />
+                    <path
+                        d="M14 12.7778C14 13.3083 13.7893 13.817 13.4142 14.192C13.0391 14.5671 12.5304 14.7778 12 14.7778C11.4696 14.7778 10.9609 14.5671 10.5858 14.192C10.2107 13.817 10 13.3083 10 12.7778C10 12.2474 10.2107 11.7387 10.5858 11.3636C10.9609 10.9885 11.4696 10.7778 12 10.7778C12.5304 10.7778 13.0391 10.9885 13.4142 11.3636C13.7893 11.7387 14 12.2474 14 12.7778Z"
+                        fill="currentColor" />
+                    <path
+                        d="M18 14.7778C18.5304 14.7778 19.0391 14.5671 19.4142 14.192C19.7893 13.817 20 13.3083 20 12.7778C20 12.2474 19.7893 11.7387 19.4142 11.3636C19.0391 10.9885 18.5304 10.7778 18 10.7778C17.4696 10.7778 16.9609 10.9885 16.5858 11.3636C16.2107 11.7387 16 12.2474 16 12.7778C16 13.3083 16.2107 13.817 16.5858 14.192C16.9609 14.5671 17.4696 14.7778 18 14.7778Z"
+                        fill="currentColor" />
+                </svg>
+
+                <span>Advanced</span>
             </div>
+
+            <div class="flexLeft">
+
+            </div>
+        </div>
+
+        <div id="AreaAdvanced" class="area areaSlideHidden">
+            <h4>Debug</h4>
+
+            <div class="viewBlock pathBorder flexColumn gap8">
+                <pre class="">Debug Text</pre>
+            </div>
+        </div>
+
+        <div class="flexCenter">
+            <div class="secondaryButton clickListen" data-function="openSettings">Open Settings</div>
         </div>
 
         <div class="block"></div>
@@ -201,7 +231,7 @@
                     fill="currentColor" />
             </svg>
 
-            <span id="VersionText">1.0 Build 1</span>
+            <span>1.0 Build 1</span>
         </div>
     </div>
     <!-- app.js -->
