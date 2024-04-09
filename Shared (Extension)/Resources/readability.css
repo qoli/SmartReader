@@ -342,7 +342,7 @@
 
 .readabilityReply code {
   display: block;
-  background-color: rgba(120, 120, 120, 0.5);
+  background-color: rgba(120, 120, 120, 0.15);
   padding: 1em;
   word-break: keep-all;
   white-space: pre-wrap;

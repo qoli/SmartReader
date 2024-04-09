@@ -256,6 +256,13 @@ input::placeholder {
   display: flex;
 }
 
+#EsionLogo {
+  border-top: 2px solid #151617;
+  padding-top: 2em;
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
 /* for dark */
 @media (prefers-color-scheme: dark) {
   html,
