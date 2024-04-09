@@ -77,7 +77,7 @@ async function setupAPISettings() {
 
 function checkAPI() {
   (async () => {
-    setupGPT();
+    await setupGPT();
 
     messagesGroup = [];
 

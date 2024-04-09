@@ -93,16 +93,6 @@ function saveAPIConfig() {
   })();
 }
 
-async function updateConfig() {
-  const API_URL = await loadData("APIURL", "https://...");
-  const API_KEY = await loadData("APIKEY", "sk-");
-  const API_MODEL = await loadData("APIMODEL", "gpt-3.5-turbo");
-
-  document.querySelector("#APIURL").value = API_URL;
-  document.querySelector("#APIKEY").value = API_KEY;
-  document.querySelector("#APIMODEL").value = API_MODEL;
-}
-
 function setupModeSelectBox() {
   function handleModeSelectBoxClick() {
     const modeSelectBoxes = document.querySelectorAll(".modeSelectBox");
@@ -150,6 +140,11 @@ function setupSettingsLink() {
   }
 }
 
+function setupStatus() {
+  let icon = document.getElementById("StatusIcon");
+  let text = document.getElementById("StatusText").innerText;
+}
+
 function mainApp() {
   setupModeSelectBox();
   setupButtonBarActions();
@@ -163,8 +158,6 @@ function mainApp() {
 // async ...
 function delayCall() {
   (async () => {
-    await updateConfig();
-
     let currentTabs = await browser.tabs.query({ active: true });
 
     document.querySelector("#currentHOST").innerHTML = getHostFromUrl(

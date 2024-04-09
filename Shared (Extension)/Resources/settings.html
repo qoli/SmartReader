@@ -11,9 +11,10 @@
     <style>
         html,
         body {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
             max-height: unset;
+            background-color: #e0e0e0;
         }
 
         input {
@@ -23,6 +24,14 @@
         input:disabled {
             cursor: not-allowed;
             color: rgba(255, 255, 255, 0.3);
+        }
+
+        @media (prefers-color-scheme: dark) {
+
+            html,
+            body {
+                background-color: #1f2225;
+            }
         }
     </style>
 </head>
@@ -84,7 +93,7 @@
         <div class="flexRight gap10">
             <div id="callbackText" class="flex1">...</div>
 
-            <input id="CheckAPI" class="button clickListen" data-function="checkAPI" type="button" value="Check">
+            <input id="CheckAPI" class="button clickListen" data-function="checkAPI" type="button" value="Check" />
 
             <input id="SaveAPI" disabled class="button clickListen" data-function="saveAPI" type="button"
                 value="Save" />
@@ -96,7 +105,8 @@
 
         <div class="viewBlock pathBorder contentLeft flexColumn gap10">
             <h5>System Text</h5>
-            <textarea id="SystemText" class="inputStyle flex1" rows="2"></textarea>
+            <textarea id="SystemText" class="inputStyle flex1" rows="1"></textarea>
+            <div class="block"></div>
             <h5>Prompt</h5>
             <textarea id="Prompt" class="inputStyle flex1" rows="13"></textarea>
         </div>
