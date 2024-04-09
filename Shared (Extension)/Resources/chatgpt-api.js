@@ -125,11 +125,16 @@ async function callGPTSummary(inputText) {
 
     try {
       await apiPostMessage(responseElem, function () {
+        // GPT Done
         hideID("response");
         hideLoading();
         setupSummary();
 
+        showID("ReadabilityReanswer");
+
         uiFocus(document.getElementById("ReadabilityFrame"));
+
+        lastURL = window.location.href;
       });
     } catch (error) {
       typeSentence("API Error:" + error, responseElem);
@@ -141,6 +146,8 @@ async function callGPTSummary(inputText) {
 
 async function apiPostMessage(responseElem, callback) {
   lastReplyMessage = ""; //reset LastMessage
+
+  toggleClass(responseElem, "ReadabilityMessageTyping");
 
   const response = await fetch(API_URL, {
     method: "POST",
@@ -229,6 +236,8 @@ async function apiPostMessage(responseElem, callback) {
       typeSentence(error, responseElem);
     }
   }
+
+  toggleClass(responseElem, "ReadabilityMessageTyping");
 }
 
 function markdownMessage(elementReference) {
@@ -314,4 +323,20 @@ function uiFocus(responseElem) {
   setTimeout(() => {
     responseElem.classList.remove("readabilityDone");
   }, 1600);
+}
+
+function toggleClass(element, className) {
+  if (element.classList.contains(className)) {
+    element.classList.remove(className);
+  } else {
+    element.classList.add(className);
+  }
+}
+
+function removeReadabilityReplies() {
+  var elements = document.getElementsByClassName("readabilityReply");
+
+  while (elements.length > 0) {
+    elements[0].parentNode.removeChild(elements[0]);
+  }
 }

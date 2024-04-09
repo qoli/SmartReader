@@ -58,10 +58,6 @@
   }
 }
 
-#ReadabilityBox * {
-  overflow-anchor: none;
-}
-
 #ReadabilityBox {
   z-index: 90000;
 
@@ -136,6 +132,8 @@
   animation: fadeIn 0.8s;
 
   white-space: pre-line;
+
+  flex-direction: column;
 }
 
 .morePadding {
@@ -353,7 +351,59 @@
   margin: 6px 0;
 }
 
+#ReadabilityMessageButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 10px;
+
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.readabilityMessageButton {
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+@keyframes dotFlashingAnimation {
+  0% {
+    content: ".";
+  }
+  50% {
+    content: "..";
+  }
+  100% {
+    content: "...";
+  }
+}
+
+.ReadabilityMessageTyping::after {
+  display: inline;
+  content: "...";
+  animation: dotFlashingAnimation 1s infinite;
+}
+
 /* animation */
+
+@keyframes blink {
+  50% {
+    color: transparent;
+  }
+}
+.readability__loader__dot {
+  animation: 1s blink infinite;
+}
+.readability__loader__dot:nth-child(2) {
+  animation-delay: 250ms;
+}
+.readability__loader__dot:nth-child(3) {
+  animation-delay: 500ms;
+}
 
 .fadeIn {
   animation: fadeIn 0.8s;

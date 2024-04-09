@@ -127,6 +127,14 @@ function insertHtml() {
     <div id="receiptTitle"></div>
     <div id="receipt"></div>
 </div>
+
+<div id="ReadabilityMessageButtons">
+<div id="ReadabilityReanswer" class="readabilityMessageButton ReadabilityStyle">
+    Reanswer
+</div>
+</div>
+<!-- ReadabilityMessageButtons / End -->
+
 </div>
 <!-- ReadabilityMessageGroup / End  -->
 
@@ -164,6 +172,12 @@ function insertHtml() {
     .querySelector("#ReadabilitySend")
     .addEventListener("click", sendReply);
 
+  document
+    .querySelector("#ReadabilityReanswer")
+    .addEventListener("click", reanswer);
+
+  hideID("ReadabilityReanswer");
+
   const textArea = document.getElementById("ReadabilityTextarea");
   textArea.addEventListener("input", () => {
     let ln = textArea.value.length;
@@ -181,6 +195,13 @@ function insertHtml() {
     }
   });
 }
+
+function reanswer() {
+  removeReadabilityReplies();
+  resetGPT();
+  runSummary();
+}
+
 // userReply:Bool
 function insertMessage(message, userReply) {
   var parentDiv = document.getElementById("ReadabilityMessageGroup");
@@ -214,7 +235,7 @@ function sendReply() {
 
   insertMessage(textValue, true);
   setTimeout(() => {
-    insertMessage("...", false);
+    insertMessage("", false);
     sendReplytext(textValue);
   }, 500);
 }
@@ -243,6 +264,10 @@ function runSummary() {
   callGPT();
 }
 
+function resetGPT() {
+  messagesGroup = [];
+}
+
 function callGPT() {
   let article = new Readability(document.cloneNode(true), {}).parse();
 
@@ -250,8 +275,9 @@ function callGPT() {
     return;
   }
 
+  // reset
   if (lastURL != window.location.href) {
-    messagesGroup = [];
+    resetGPT();
   }
 
   if (messagesGroup.length > 0) {
@@ -267,8 +293,6 @@ function callGPT() {
   document.querySelector(
     "#ReadabilityHost"
   ).innerHTML = `${window.location.host} / ${API_MODEL}`;
-
-  lastURL = window.location.href;
 
   callGPTSummary(coreText);
 }
