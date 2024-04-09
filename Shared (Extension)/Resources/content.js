@@ -45,10 +45,12 @@ function getDebugText() {
 
 function ready() {
   (async () => {
-    await setupGPT();
+    let bool = await setupGPT();
 
-    insertHtml();
-    console.log("Eison-Config:", API_URL, API_KEY, API_MODEL);
+    if (bool) {
+      insertHtml();
+      console.log("Eison-Config:", API_URL, API_KEY, API_MODEL);
+    }
   })();
 }
 
