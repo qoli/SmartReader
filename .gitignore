@@ -1,0 +1,43 @@
+# Xcode
+#
+# gitignore contributors: switch to the more complete xcworkspace case
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+
+## Build results
+build/
+DerivedData/
+
+## User settings
+xcuserdata/
+
+## Scripts
+*.pyc
+
+## Others
+*.LSSharedFileList.plist
+*.xcuserstate
+
+# macOS
+#
+.DS_Store
+.AppleDouble
+.LSSharedFileList
+.Spotlight-V100
+.Trashes
+Files.detached
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Node/Web
+node_modules/
+.npm
+dist/
+tmp/
+*.log
